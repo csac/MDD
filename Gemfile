@@ -22,7 +22,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'haml-rails'
 
 gem 'kaminari'
 gem 'yajl-ruby'

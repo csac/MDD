@@ -1,0 +1,10 @@
+%article.keyword-categories
+  %ul
+    - collection.each do |keyword_category|
+      %li
+        %h1= keyword_category.name
+        %p
+          = link_to t('edit'), edit_keyword_category_path(keyword_category)
+          = link_to t('show'), keyword_category_path(keyword_category)
+          = link_to t('delete'), '#'
+
