@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
+gem 'thin',  '~>1.3.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -24,12 +25,18 @@ gem 'jquery-rails'
 
 
 gem 'kaminari'
-gem 'capistrano'
-gem 'rspec'
 gem 'yajl-ruby'
 gem 'inherited_resources'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'redcarpet'
 gem 'acts-as-taggable-on'
+gem 'devise'
+
+group :test, :development do
+  gem 'simplecov'       , '~>0.5.4', require: false
+  gem 'rspec-rails'     , '~>2.8.1'
+  gem 'capistrano-af83' , '~>0.1.8'
+  gem "letter_opener"
+end
 
