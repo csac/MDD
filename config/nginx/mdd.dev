@@ -1,0 +1,25 @@
+upstream mdd {
+	server 127.0.0.1:3000;
+}
+
+server {
+	listen   80;
+	server_name mdd.dev;
+    	root /path/to/mdd/public;
+
+	location / {
+		proxy_redirect     off;
+		proxy_set_header   Host             $host;
+                proxy_buffering off;
+
+		if (-f $request_filename) {
+			break;
+		}
+
+		if (!-f $request_filename) {
+			proxy_pass http://mdd;
+			break;
+		}
+	}
+}
+

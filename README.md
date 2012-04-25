@@ -42,3 +42,8 @@ Setup
 
     rake db:create
 
+Run
+---
+
+    rails s thin
+
