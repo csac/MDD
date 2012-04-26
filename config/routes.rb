@@ -4,5 +4,6 @@ Mdd::Application.routes.draw do
   root :to => 'keyword_categories#index'
 
   resources :keyword_categories
+  resources :keywords
 end
 

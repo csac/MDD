@@ -11,13 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120425124252) do
+ActiveRecord::Schema.define(:version => 20120425134715) do
 
   create_table "keyword_categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "keywords", :force => true do |t|
+    t.string   "name"
+    t.integer  "keyword_category_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "keywords", ["keyword_category_id"], :name => "index_keywords_on_keyword_category_id"
 
   create_table "users", :force => true do |t|
     t.string   "email"
