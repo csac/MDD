@@ -1,4 +1,4 @@
-Ministère du Dévelopement Durable
+Ministère du Développement Durable
 =================================
 
 Setup
@@ -51,7 +51,7 @@ cp config/database.yml.sample config/database.yml
 * Create the database and run migrations:
 
 ```
-rake db:create
+rake db:setup
 rake db:migrate
 ```
 
