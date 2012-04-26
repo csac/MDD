@@ -1,4 +1,8 @@
 %article.keyword-category
   %header
-    %h1= "#{@keyword.name} (#{@keyword.keyword_category.name})"
+    %h1
+      = @keyword.name
+      (
+      = link_to @keyword.keyword_category.name, keyword_category_path(@keyword.keyword_category)
+      )
 

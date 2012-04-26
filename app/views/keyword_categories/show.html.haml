@@ -1,4 +1,7 @@
 %article.keyword-category
   %header
     %h1= @keyword_category.name
+  %ul
+    - @keyword_category.keywords.each do |keyword|
+      %li= link_to keyword.name, keyword_path(keyword)
 
