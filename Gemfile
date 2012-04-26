@@ -28,6 +28,7 @@ gem 'kaminari'
 gem 'yajl-ruby'
 gem 'inherited_resources'
 gem 'bootstrap-sass'
+gem "bootswatch-rails"
 gem 'simple_form'
 gem 'redcarpet'
 gem 'acts-as-taggable-on'
