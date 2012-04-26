@@ -37,7 +37,7 @@ gem 'devise'
 group :test, :development do
   gem 'simplecov'       , '~>0.5.4', require: false
   gem 'rspec-rails'     , '~>2.8.1'
-  gem 'capistrano-af83' , '~>0.1.8'
+  gem "capistrano-af83", "~> 0.2.0"
   gem "letter_opener"
 end
 

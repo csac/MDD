@@ -43,7 +43,7 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
-    capistrano-af83 (0.1.9)
+    capistrano-af83 (0.2.0)
       capistrano (~> 2.9)
       capistrano-notification (~> 0.1)
       capistrano_colors (~> 0.5)
@@ -198,7 +198,7 @@ DEPENDENCIES
   acts-as-taggable-on
   bootstrap-sass
   bootswatch-rails
-  capistrano-af83 (~> 0.1.8)
+  capistrano-af83 (~> 0.2.0)
   coffee-rails (~> 3.2.1)
   devise
   haml-rails
