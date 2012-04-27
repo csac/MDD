@@ -1,0 +1,6 @@
+%article.sheets
+  %ul
+    - collection.each do |sheet|
+      %li
+        %h1= link_to sheet.title, sheet_path(sheet)
+

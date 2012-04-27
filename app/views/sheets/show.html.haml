@@ -1,0 +1,11 @@
+%article.sheet
+  %header
+    %h1= resource.title
+    %ul
+      - resource.keywords.each do |keyword|
+        %li= link_to keyword.name, keyword_path(keyword)
+    %p
+      = t('level')
+      = resource.level
+  %p= resource.description
+

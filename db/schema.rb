@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120425134715) do
+ActiveRecord::Schema.define(:version => 20120426103700) do
 
   create_table "keyword_categories", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,20 @@ ActiveRecord::Schema.define(:version => 20120425134715) do
   end
 
   add_index "keywords", ["keyword_category_id"], :name => "index_keywords_on_keyword_category_id"
+
+  create_table "keywords_sheets", :id => false, :force => true do |t|
+    t.integer "keyword_id"
+    t.integer "sheet_id"
+  end
+
+  create_table "sheets", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "level"
+    t.boolean  "up_to_date"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"

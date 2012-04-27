@@ -1,0 +1,13 @@
+%article.sheet
+  = simple_form_for resource do |f|
+    = f.input  :title
+    = f.input  :level, collection: [1, 2, 3]
+    = f.input  :up_to_date
+    %ul
+      - KeywordCategory.all.each do |keyword_category|
+        %li
+          %p= keyword_category.name
+          = f.association :keywords, collection: keyword_category.keywords, as: :check_boxes, label: false
+    = f.input  :description
+    = f.button :submit
+
