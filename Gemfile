@@ -33,6 +33,7 @@ gem 'simple_form'
 gem 'redcarpet'
 gem 'acts-as-taggable-on'
 gem 'devise'
+gem 'cancan'
 
 group :test, :development do
   gem 'simplecov'       , '~>0.5.4', require: false
