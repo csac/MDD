@@ -7,5 +7,6 @@
     %p
       = t('level')
       = resource.level
-  %p= resource.description
+  %article
+    = raw(resource.description_html)
 
