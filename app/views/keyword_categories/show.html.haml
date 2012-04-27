@@ -1,8 +1,8 @@
 %article.keyword-category
   %header
-    %h1= @keyword_category.name
+    %h1= resource.name
   %ul
-    - @keyword_category.keywords.each do |keyword|
+    - resource.keywords.each do |keyword|
       %li= link_to keyword.name, keyword_path(keyword)
-  = link_to t('new_keyword'), new_keyword_path(keyword_category_id: @keyword_category.id)
+  = link_to t('new_keyword'), new_keyword_path(keyword_category_id: resource.id)
 

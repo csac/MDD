@@ -1,8 +1,8 @@
-%article.keyword-category
+%article.keyword
   %header
     %h1
-      = @keyword.name
+      = resource.name
       (
-      = link_to @keyword.keyword_category.name, keyword_category_path(@keyword.keyword_category)
+      = link_to resource.keyword_category.name, keyword_category_path(resource.keyword_category)
       )
 
