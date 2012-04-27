@@ -6,3 +6,8 @@
       = link_to resource.keyword_category.name, keyword_category_path(resource.keyword_category)
       )
 
+    %ul
+      - resource.sheets.each do |sheet|
+        %li
+          %h1= link_to sheet.title, sheet_path(sheet)
+
