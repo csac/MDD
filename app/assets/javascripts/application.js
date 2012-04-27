@@ -12,4 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require markitup/jquery.markitup
+//= require markitup/sets/markdown/set
 //= require_tree .
+
+//= require boot

@@ -8,6 +8,6 @@
         %li
           %p= keyword_category.name
           = f.association :keywords, collection: keyword_category.keywords, as: :check_boxes, label: false
-    = f.input  :description
+    = f.input  :description, input_html: { :class => 'markitup' }
     = f.button :submit
 
