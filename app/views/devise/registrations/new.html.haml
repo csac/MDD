@@ -3,6 +3,7 @@
   = f.error_notification
   .inputs
     = f.input :email, :required => true, :autofocus => true
+    = f.input :roles, :required => true, :collection => User.valid_roles
     = f.input :password, :required => true
     = f.input :password_confirmation, :required => true
   .actions
