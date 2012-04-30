@@ -1,5 +1,6 @@
 class KeywordsController < InheritedResources::Base
   before_filter :authenticate_user!
+  authorize_resource
   respond_to :html
 
   def new
