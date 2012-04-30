@@ -1,0 +1,14 @@
+.notifications
+
+  - if flash[:success]
+    %p.alert.alert-success= flash[:success]
+
+  - if flash[:notice]
+    %p.alert.alert-info= flash[:notice]
+
+  - if flash[:alert]
+    %p.alert.alert-warning= flash[:alert]
+
+  - if flash[:error]
+    %p.alert.alert-error= flash[:error]
+
