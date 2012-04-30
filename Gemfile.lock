@@ -142,6 +142,7 @@ GEM
     redcarpet (2.1.1)
     responders (0.9.1)
       railties (~> 3.1)
+    role_model (0.7.0)
     rspec (2.8.0)
       rspec-core (~> 2.8.0)
       rspec-expectations (~> 2.8.0)
@@ -211,6 +212,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.3)
   redcarpet
+  role_model
   rspec-rails (~> 2.8.1)
   sass-rails (~> 3.2.3)
   simple_form
