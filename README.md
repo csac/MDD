@@ -77,3 +77,18 @@ Run
 ```
 bundle exec rails s thin
 ```
+
+Tests
+-----
+
+* Prepare with :
+
+``` bash
+bundle exec rake db:test:prepare
+```
+
+* Start tests with :
+
+``` bash
+bundle exec rspec
+```

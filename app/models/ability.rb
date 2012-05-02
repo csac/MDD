@@ -8,6 +8,7 @@ class Ability
     if user.has_role? :administrator
       can :manage, :all
     elsif user.has_role? :author
+      can [:edit, :update, :show, :edit_password, :update_password], user
       can :manage, Sheet
     end
 
