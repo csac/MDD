@@ -1,0 +1,12 @@
+= simple_form_for resource do |f|
+  = f.input :title
+  = f.input :level, collection: [1, 2, 3]
+  = f.input :up_to_date
+  = f.error :keywords
+  %ul.keywords
+    - KeywordCategory.all.each do |keyword_category|
+      %li
+        %p= keyword_category.name
+        = f.association :keywords, collection: keyword_category.keywords, as: :check_boxes, label: false, error: false
+  = f.input  :description, input_html: { :class => 'markitup' }
+  = f.button :submit
