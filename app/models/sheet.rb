@@ -19,7 +19,9 @@ class Sheet < ActiveRecord::Base
   private
 
   def at_least_one_keyword
-    errors.add(:keywords, "There must have at least one keyword") if self.keywords.blank?
+    if self.keywords.blank?
+      errors.add(:keywords, "There must have at least one keyword")
+    end
   end
 
 end

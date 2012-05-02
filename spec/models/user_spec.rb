@@ -84,11 +84,13 @@ describe User do
         end
 
         it 'edit other users password' do
-          author_ability.should_not be_able_to(:edit_password, Fabricate(:author))
+          author_ability.
+            should_not be_able_to(:edit_password, Fabricate(:author))
         end
 
         it 'update other users password' do
-          author_ability.should_not be_able_to(:update_password, Fabricate(:author))
+          author_ability.
+            should_not be_able_to(:update_password, Fabricate(:author))
         end
       end
 
