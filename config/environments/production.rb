@@ -1,5 +1,6 @@
 Mdd::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
+  MY_DOMAIN = 'developpement-durable.gouv.fr'
 
   # Code is not reloaded between requests
   config.cache_classes = true
