@@ -56,13 +56,13 @@ cp config/database.yml.sample config/database.yml
 * Create the database and run migrations:
 
 ```
-rake db:setup
-rake db:migrate
+bundle exec rake db:setup
+bundle exec rake db:migrate
 ```
 
 Run
 ---
 
 ```
-rails s thin
+bundle exec rails s thin
 ```
