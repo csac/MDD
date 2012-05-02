@@ -2,4 +2,18 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  layouts:
+    application:
+      home: 'Home'
+      sheets: 'Sheets'
+      keywords: 'Keywords'
+      keyword_categories: 'Keywords categories'
+  sheets:
+    index:
+      new: 'New sheet'
+  keyword_categories:
+    index:
+      new: 'New Keyword categorie'
+  keywords:
+    index:
+      new: 'New Keyword'

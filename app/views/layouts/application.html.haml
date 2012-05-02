@@ -12,12 +12,12 @@
   %header.navbar
     .navbar-inner
       .container
-        = link_to "Accueil", root_path, class: "brand"
+        = link_to t('.home'), root_path, class: "brand"
         %ul.nav
-          %li= link_to t('sheets'), sheets_path
+          %li= link_to t('.sheets'), sheets_path
           - if user_signed_in? and current_user.has_role? :administrator
-            %li= link_to t('keywords'), keywords_path
-            %li= link_to t('keyword_categories'), keyword_categories_path
+            %li= link_to t('.keywords'), keywords_path
+            %li= link_to t('.keyword_categories'), keyword_categories_path
 
   %section.container
     = render :partial => 'shared/notifications'
