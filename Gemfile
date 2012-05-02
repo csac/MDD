@@ -6,25 +6,23 @@ gem 'thin',  '~>1.3.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-# TODO: fix versions with « ~>version »
-gem 'pg'
+gem 'pg', '~>0.13.2'
 
-gem 'mo'
+gem 'mo', '~>0.0.3'
 
-gem 'jquery-rails'
-gem 'haml-rails'
+gem 'jquery-rails', '~>2.0.2'
+gem 'haml-rails', '~>0.3.4'
 
-gem 'kaminari'
-gem 'yajl-ruby'
-gem 'inherited_resources'
-gem 'bootstrap-sass'
-gem "bootswatch-rails"
-gem 'simple_form'
-gem 'redcarpet'
-gem 'acts-as-taggable-on'
-gem 'devise'
-gem 'cancan'
-gem 'role_model'
+gem 'kaminari', '~>0.13.0'
+gem 'yajl-ruby', '~>1.1.0'
+gem 'inherited_resources', '~>1.3.1'
+gem 'bootstrap-sass', '~>2.0.2'
+gem 'bootswatch-rails', '~>0.0.11'
+gem 'simple_form', '~>2.0.1'
+gem 'redcarpet', '~>2.1.1'
+gem 'devise', '~>2.0.4'
+gem 'cancan', '~>1.6.7'
+gem 'role_model', '~>0.7.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
