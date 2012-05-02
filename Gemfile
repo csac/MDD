@@ -38,17 +38,24 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :test, :development do
+group :test do
   gem 'simplecov'       , '~> 0.5.4', require: false
   gem 'rspec-rails'     , '~> 2.8.1'
-  gem "capistrano-af83" , '~> 0.2.0'
-  gem 'shout-bot', '=0.0.4'
   gem 'turn', '~>0.9.2', require: false # Pretty printed test output
   gem 'database_cleaner', '~>0.7.2'
-  gem 'ffaker', '~>1.12.1'                    # Generate fake data
-  gem 'fabrication', '~>1.2.0'               # Object generator for specs
+  gem 'fuubar', '~>1.0.0'
+end
+
+group :development do
+  gem "capistrano-af83" , '~> 0.2.0'
+  gem 'shout-bot', '=0.0.4'
+  gem "annotate", :git => "git://github.com/ctran/annotate_models.git"
   gem 'simplecov', '~>0.5.4', require: false # Code coverage
   gem 'letter_opener', '~>0.0.2'
-  gem 'fuubar', '~>1.0.0'
   gem 'quiet_assets'
+end
+
+group :test, :development do
+  gem 'ffaker', '~>1.12.1'                    # Generate fake data
+  gem 'fabrication', '~>1.2.0'               # Object generator for specs
 end

@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/ctran/annotate_models.git
+  revision: ff1131daee8c03dbcc4966b7914b77a7e3a62f02
+  specs:
+    annotate (2.4.1.beta1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -213,6 +219,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
+  annotate!
   bootstrap-sass
   bootswatch-rails
   cancan
