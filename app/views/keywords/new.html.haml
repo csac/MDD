@@ -1,6 +1,3 @@
 %article.keyword
-  = simple_form_for resource do |f|
-    = f.association :keyword_category
-    = f.input  :name
-    = f.button :submit
+  = render :partial => 'form'
 

@@ -1,0 +1,5 @@
+= simple_form_for resource do |f|
+  - if resource.new_record?
+    = f.association :keyword_category
+  = f.input  :name
+  = f.button :submit
