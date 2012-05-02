@@ -14,6 +14,9 @@ en:
   keyword_categories:
     index:
       new: 'New Keyword categorie'
+      confirm_delete: 'Are you sure?'
   keywords:
     index:
       new: 'New Keyword'
+      confirm_delete: 'Are you sure?'
+  

@@ -7,5 +7,6 @@
         %p
           = link_to t('edit'), edit_keyword_path(keyword)
           = link_to t('show'), keyword_path(keyword)
-          = link_to t('delete'), '#'
+          = link_to t('delete'), keyword_path(keyword), method: :delete, confirm: t('.confirm_delete')
+
 
