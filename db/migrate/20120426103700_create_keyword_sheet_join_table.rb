@@ -1,3 +1,4 @@
+# encoding: utf-8
 class CreateKeywordSheetJoinTable < ActiveRecord::Migration
   def change
     create_table :keywords_sheets, id: false do |t|

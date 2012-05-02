@@ -1,3 +1,4 @@
+# encoding: utf-8
 class CreateSheets < ActiveRecord::Migration
   def change
     create_table :sheets do |t|

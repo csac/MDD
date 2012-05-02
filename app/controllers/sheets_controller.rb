@@ -1,3 +1,4 @@
+# encoding: utf-8
 class SheetsController < InheritedResources::Base
   before_filter :authenticate_user!
   authorize_resource

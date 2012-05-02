@@ -103,6 +103,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.18)
+    mo (0.0.3)
     multi_json (1.0.4)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
@@ -209,6 +210,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   letter_opener
+  mo
   pg
   rails (= 3.2.3)
   redcarpet
