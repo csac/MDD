@@ -15,11 +15,15 @@
         = link_to t('.home'), root_path, class: "brand"
         %ul.nav
           %li= link_to t('.sheets'), sheets_path
-          - if user_signed_in? and current_user.has_role? :administrator
+          - if user_signed_in? && current_user.has_role?(:administrator)
             %li= link_to t('.keywords'), keywords_path
             %li= link_to t('.keyword_categories'), keyword_categories_path
         %ul.nav.pull-right
-          %li= link_to t('.logout'), destroy_user_session_path, method: :delete
+          - if user_signed_in?
+            %li= link_to t('.sign_out'), destroy_user_session_path, method: :delete
+          - else
+            %li= link_to t('.sign_in'), new_user_session_path
+
 
   %section.container
     = render :partial => 'shared/notifications'

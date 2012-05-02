@@ -8,7 +8,8 @@ en:
       sheets: 'Sheets'
       keywords: 'Keywords'
       keyword_categories: 'Keywords categories'
-      logout: 'Logout'
+      sign_out: 'Sign out'
+      sign_in: 'Sign in'
   sheets:
     index:
       new: 'New sheet'
@@ -20,4 +21,3 @@ en:
     index:
       new: 'New Keyword'
       confirm_delete: 'Are you sure?'
-  
