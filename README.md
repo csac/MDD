@@ -60,6 +60,17 @@ bundle exec rake db:setup
 bundle exec rake db:migrate
 ```
 
+Create user
+-----------
+
+``` bash
+bundle exec rails c
+>> User.find_or_initialize_by_email("admin@developpement-durable.gouv.fr")
+>> u.password = 'password' # => "password"
+>> u.roles = [:administrator] #=> [:administrator]
+>> u.save # => true
+```
+
 Run
 ---
 
