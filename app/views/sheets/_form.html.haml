@@ -1,6 +1,6 @@
 = simple_form_for resource do |f|
   = f.input :title
-  = f.input :level, collection: [1, 2, 3]
+  = f.input :level, collection: Sheet::LEVELS
   = f.input :up_to_date
   = f.error :keywords
   %ul.keywords

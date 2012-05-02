@@ -1,11 +1,13 @@
 # encoding: utf-8
 class Sheet < ActiveRecord::Base
+  LEVELS = [1, 2, 3]
+
   has_and_belongs_to_many :keywords
   accepts_nested_attributes_for :keywords
 
-  validates :title,       :presence => true
-  validates :description, :presence => true
-  validates :level,       :presence => true
+  validates :title,       presence: true
+  validates :description, presence: true
+  validates :level,       presence: true, inclusion: { in: LEVELS }
   validate  :at_least_one_keyword
 
   attr_accessible :title, :description, :level, :up_to_date, :keyword_ids
@@ -17,7 +19,7 @@ class Sheet < ActiveRecord::Base
   private
 
   def at_least_one_keyword
-    errors.add(:keywords, "There must have at least one keyword") if self.keywords.size == 0
+    errors.add(:keywords, "There must have at least one keyword") if self.keywords.blank?
   end
 
 end
