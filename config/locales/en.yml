@@ -8,6 +8,7 @@ en:
       sheets: 'Sheets'
       keywords: 'Keywords'
       keyword_categories: 'Keywords categories'
+      logout: 'Logout'
   sheets:
     index:
       new: 'New sheet'

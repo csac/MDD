@@ -18,6 +18,8 @@
           - if user_signed_in? and current_user.has_role? :administrator
             %li= link_to t('.keywords'), keywords_path
             %li= link_to t('.keyword_categories'), keyword_categories_path
+        %ul.nav.pull-right
+          %li= link_to t('.logout'), destroy_user_session_path, method: :delete
 
   %section.container
     = render :partial => 'shared/notifications'
