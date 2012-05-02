@@ -36,6 +36,11 @@ exit
 local   all             all                                     trust
 ```
 
+* Restart postgresql for config change:
+``` bash
+/etc/init.d/postgresql restart
+```
+
 * Install the necessary gems via bundler:
 
 ```
@@ -61,4 +66,3 @@ Run
 ```
 rails s thin
 ```
-
