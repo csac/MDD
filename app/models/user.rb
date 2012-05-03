@@ -42,6 +42,10 @@ class User < ActiveRecord::Base
   roles_attribute :roles_mask
   roles :administrator, :author
 
+  def name
+    "#{firstname} #{lastname} <#{email}>"
+  end
+
   def administrator?
     has_role? :administrator
   end
