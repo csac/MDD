@@ -1,7 +1,7 @@
 # encoding: utf-8
 Mdd::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
-  MY_DOMAIN = 'localhost:3000'
+  MY_DOMAIN = 'mdd.dev'
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -18,7 +18,7 @@ Mdd::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.default_url_options = { host: "mdd.dev" }
+  config.action_mailer.default_url_options = { host: MY_DOMAIN }
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
