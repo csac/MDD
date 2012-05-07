@@ -33,7 +33,8 @@ group :assets do
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platform => :ruby
 
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier',     '>= 1.0.3'
+  gem 'therubyracer', '~>0.9.10'  # Coffescript compilation
 end
 
 group :test do
@@ -45,7 +46,7 @@ group :test do
 end
 
 group :development do
-  gem "capistrano-af83" , '~> 0.2.0'
+  gem "capistrano-af83" , '~> 0.2.1'
   gem 'shout-bot', '=0.0.4'
   gem "annotate", :git => "git://github.com/ctran/annotate_models.git"
   gem 'simplecov', '~>0.5.4', require: false # Code coverage
