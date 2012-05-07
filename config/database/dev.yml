@@ -3,6 +3,6 @@ dev:
   encoding: unicode
   database: mdd_dev
   pool: 5
-  username: mdd_dev
+  username: mdd
   password: "OhPhier0"
 
