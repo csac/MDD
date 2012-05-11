@@ -1,4 +1,6 @@
 # encoding: UTF-8
+require 'spec_helper'
+
 describe History do
   describe "have a subject and an action with timestamp" do
     it 'user create a sheet' do

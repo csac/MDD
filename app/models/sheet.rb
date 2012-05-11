@@ -21,7 +21,7 @@ class Sheet < ActiveRecord::Base
   validates :title,       presence: true
   validates :description, presence: true
   validates :level,       presence: true, inclusion: { in: LEVELS }
-  validate  :at_least_one_keyword
+  validate  :at_least_one_skills_keyword
 
   attr_accessible :title, :description, :level, :up_to_date, :keyword_ids
 
@@ -31,9 +31,11 @@ class Sheet < ActiveRecord::Base
 
   private
 
-  def at_least_one_keyword
-    if self.keywords.blank?
-      errors.add(:keywords, "There must have at least one keyword")
+  def at_least_one_skills_keyword
+    skills = KeywordCategory.where(name: 'Pôles de compétence').first
+    # Check if any keyword belongs to the skills category
+    unless self.keywords.any? { |keyword| skills.keywords.include?(keyword) }
+      errors.add(:keywords, I18n.t("errors.one_skill_keyword"))
     end
   end
 

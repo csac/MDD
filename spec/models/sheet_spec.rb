@@ -16,11 +16,19 @@ require 'spec_helper'
 
 describe Sheet do
   describe 'keywords' do
-    let(:sheet) { Fabricate.build(:sheet, keywords: []) }
+    let(:skill_keyword) { Fabricate(:skill_keyword) }
+    let(:keyword)       { Fabricate(:keyword) }
+    let(:sheet)         { Fabricate(:sheet) }
 
-    it 'should have at last one keywords' do
+    it 'should not be valid when not having a skill keyword' do
+      sheet.keywords = [keyword]
       sheet.should_not be_valid
       sheet.should have(1).errors_on(:keywords)
+    end
+
+    it 'should be valid when having at least one skill keyword' do
+      sheet.keywords << skill_keyword
+      sheet.should be_valid
     end
   end
 end
