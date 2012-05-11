@@ -21,3 +21,5 @@ en:
     index:
       new: 'New Keyword'
       confirm_delete: 'Are you sure?'
+  errors:
+    one_skill_keyword: 'You must select at least one skill keyword'
