@@ -18,5 +18,13 @@
         %span.label.label-info= keyword.name
 
   %article
-    = raw(resource.description_html)
+    %section.description
+      = raw(resource.description_html)
+
+    %section.history
+      %table.table.table-bordered.table-striped
+        - resource.histories.each do |history|
+          %tr
+            %td
+              = t(".histories.#{history.action}", user: history.user.name, time: history.created_at)
 
