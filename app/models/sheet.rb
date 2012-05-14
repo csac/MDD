@@ -16,6 +16,8 @@ class Sheet < ActiveRecord::Base
   LEVELS = [1, 2, 3]
 
   has_and_belongs_to_many :keywords
+  has_many   :histories, dependent: :destroy, as: :historyable
+
   accepts_nested_attributes_for :keywords
 
   validates :title,       presence: true
@@ -27,6 +29,14 @@ class Sheet < ActiveRecord::Base
 
   def description_html
     Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(description)
+  end
+
+  def historize(user, action='create')
+    History.create(
+      subject: self,
+      action: action,
+      user: user
+    )
   end
 
   private
