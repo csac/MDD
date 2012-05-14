@@ -1,1 +1,80 @@
 fr:
+  # Keyword Category resource
+  keyword_categories:
+    index:
+      title: 'Catégories de mots clés'
+      category: 'Catégorie'
+      actions: 'Actions'
+    show:
+      keyword: 'Mot clé'
+      actions: 'Actions'
+    new:
+      title: 'Ajouter une catégorie'
+    edit:
+      title: 'Editer cette catégorie'
+
+  # Keyword resource
+  keywords:
+    index:
+      title: 'Mots clés'
+      category: 'Catégorie'
+      keyword: 'Mot clé'
+      actions: 'Actions'
+    show:
+      sheet: 'Fiche'
+      actions: 'Actions'
+    new:
+      title: 'Ajouter un mot clé'
+    edit:
+      title: 'Editer ce mot clé'
+
+  # Sheet resource
+  sheets:
+    index:
+      title: 'Fiches'
+      keywords: 'Mots clés'
+      sheet: 'Fiche'
+      actions: 'Actions'
+    new:
+      title: 'Ajouter une fiche'
+    edit:
+      title: 'Editer cette fiche'
+
+  # Action Buttons
+  actions:
+    confirm_delete: 'Etes-vous sûr de vouloir supprimer cet item ?'
+
+    keywords:
+      new: 'Ajouter un mot clé'
+      edit: 'Editer'
+      delete: 'Supprimer'
+    keyword_categories:
+      new: 'Ajouter une catégorie'
+      edit: 'Editer'
+      delete: 'Supprimer'
+    sheets:
+      new: 'Ajouter une fiche'
+      edit: 'Editer'
+      delete: 'Supprimer'
+
+  # Menu and breadcrumb
+  nav:
+    home: 'Home'
+    sign_out: 'Déconnexion'
+    sign_in: 'Formulaire de connexion'
+
+    keyword_categories:
+      index: 'Catégories de mots clés'
+      new: 'Ajouter une catégorie'
+      edit: 'Editer'
+    keywords:
+      index: 'Mots clés'
+      new: 'Ajouter un mot clé'
+      edit: 'Editer'
+    sheets:
+      index: 'Fiches'
+      new: 'Ajouter une fiche'
+      edit: 'Editer'
+
+  errors:
+    one_skill_keyword: 'Merci de sélectionner au moins un mot clé dans la catégorie "Pôles de compétence"'
