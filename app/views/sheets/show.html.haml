@@ -21,7 +21,8 @@
     %section.description
       = raw(resource.description_html)
 
-    %section.history
+    %section.history.row
+      %h1= t(".history")
       %table.table.table-bordered.table-striped
         - resource.histories.each do |history|
           %tr
