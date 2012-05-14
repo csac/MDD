@@ -1,13 +1,30 @@
 %article.keyword
-  %header
-    %h1
+
+  %ul.breadcrumb.row
+    %li
+      = link_to t('.keywords'), keywords_path
+      %span.divider /
+    %li.active
       = resource.name
-      (
-      = link_to resource.keyword_category.name, keyword_category_path(resource.keyword_category)
-      )
 
-    %ul
+  %header.page-header.row
+    %h1.pull-left
+      = resource.name
+    %p.pull-right
+      = link_to t('.edit'), edit_keyword_path(resource), :class => 'btn'
+      = link_to t('sheets.index.new'), new_sheet_path, :class => 'btn btn-primary'
+
+  %section.row
+    %table.table.table-bordered.table-striped
+      %tr
+        %th= t('sheet')
+        %th= t('actions')
+
       - resource.sheets.each do |sheet|
-        %li
-          %h1= link_to sheet.title, sheet_path(sheet)
+        %tr
+          %td= link_to sheet.title, sheet_path(sheet)
+          %td
+            = link_to t('edit'), edit_sheet_path(sheet), :class => 'btn btn-small'
+            = link_to t('delete'), sheet_path(sheet), method: :delete, confirm: t('.confirm_delete'), :class => 'btn btn-danger btn-small'
 
+    = paginate collection

@@ -1,4 +1,5 @@
-= simple_form_for resource do |f|
-  = f.input  :name
-  = f.button :submit
+= simple_form_for resource, :html => { :class => 'form-horizontal' } do |f|
+  = f.input  :name, :input_html => { :class => 'span3' }
+  .form-actions
+    = f.button :submit, :class => 'btn btn-primary'
 

@@ -18,6 +18,8 @@
           - if user_signed_in? && current_user.has_role?(:administrator)
             %li= link_to t('.keywords'), keywords_path
             %li= link_to t('.keyword_categories'), keyword_categories_path
+        %form.navbar-search.pull-left
+          %input.search-query.span2
         %ul.nav.pull-right
           - if user_signed_in?
             %li= link_to t('.sign_out'), destroy_user_session_path, method: :delete

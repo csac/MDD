@@ -1,3 +1,15 @@
 %article.keyword
+
+  %ul.breadcrumb.row
+    %li
+      = link_to t('keywords'), keywords_path
+      %span.divider /
+    %li.active
+      = t('.edit')
+
+  %header.page-header.row
+    %h1.pull-left
+      = t('edit_keyword')
+
   = render :partial => 'form'
 

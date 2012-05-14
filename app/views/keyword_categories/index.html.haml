@@ -1,12 +1,21 @@
-= link_to t('.new'), new_keyword_category_path
 %article.keyword-categories
-  %ul
-    - collection.each do |keyword_category|
-      %li
-        %h1= keyword_category.name
-        %p
-          = link_to t('edit'), edit_keyword_category_path(keyword_category)
-          = link_to t('show'), keyword_category_path(keyword_category)
-          = link_to t('delete'), keyword_category_path(keyword_category), method: :delete, confirm: t('.confirm_delete')
-  = paginate collection
+
+  %header.page-header.row
+    %h1.pull-left= t('nav.categories')
+    = link_to t('.new'), new_keyword_category_path, :class => 'btn btn-primary pull-right'
+
+  %section.row
+    %table.table.table-bordered.table-striped
+      %tr
+        %th= t('category')
+        %th= t('actions')
+
+      - collection.each do |keyword_category|
+        %tr
+          %td= link_to keyword_category.name, keyword_category_path(keyword_category)
+          %td
+            = link_to t('edit'), edit_keyword_category_path(keyword_category), :class => 'btn btn-small'
+            = link_to t('delete'), keyword_category_path(keyword_category), method: :delete, confirm: t('.confirm_delete'), :class => 'btn btn-danger btn-small'
+
+    = paginate collection
 

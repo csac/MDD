@@ -1,8 +1,26 @@
-= link_to t('.new'), new_sheet_path
 %article.sheets
-  %ul
-    - collection.each do |sheet|
-      %li
-        %h1= link_to sheet.title, sheet_path(sheet)
-  = paginate collection
+
+  %header.page-header.row
+    %h1.pull-left= t('nav.sheets')
+    = link_to t('.new'), new_sheet_path, :class => 'btn btn-primary pull-right'
+
+  %section.row
+    %table.table.table-bordered.table-striped
+      %tr
+        %th= t('Keywords')
+        %th= t('sheet')
+        %th= t('actions')
+
+      - collection.each do |sheet|
+        %tr
+          %td
+            - sheet.keywords.each do |keyword|
+              %span.label.label-info= keyword.name
+          %td= link_to sheet.title, sheet_path(sheet)
+          %td
+            = link_to t('edit'), edit_sheet_path(sheet), :class => 'btn btn-small'
+            = link_to t('delete'), sheet_path(sheet), method: :delete, confirm: t('.confirm_delete'), :class => 'btn btn-danger btn-small'
+
+    = paginate collection
+
 

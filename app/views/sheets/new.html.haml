@@ -1,3 +1,15 @@
 %article.sheet
+
+  %ul.breadcrumb.row
+    %li
+      = link_to t('.sheets'), sheets_path
+      %span.divider /
+    %li.active
+      = t('.new')
+
+  %header.page-header.row
+    %h1.pull-left
+      = t('new_sheet')
+
   = render :partial => 'form'
 

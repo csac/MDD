@@ -13,13 +13,18 @@ en:
   sheets:
     index:
       new: 'New sheet'
+      confirm_delete: 'Are you sure?'
   keyword_categories:
     index:
       new: 'New Keyword categorie'
       confirm_delete: 'Are you sure?'
+    show:
+      confirm_delete: 'Are you sure?'
   keywords:
     index:
       new: 'New Keyword'
+      confirm_delete: 'Are you sure?'
+    show:
       confirm_delete: 'Are you sure?'
   errors:
     one_skill_keyword: 'You must select at least one skill keyword'

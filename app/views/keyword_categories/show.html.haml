@@ -1,8 +1,30 @@
 %article.keyword-category
-  %header
-    %h1= resource.name
-  %ul
-    - resource.keywords.each do |keyword|
-      %li= link_to keyword.name, keyword_path(keyword)
-  = link_to t('new_keyword'), new_keyword_path(keyword_category_id: resource.id)
 
+  %ul.breadcrumb.row
+    %li
+      = link_to t('.categories'), keyword_categories_path
+      %span.divider /
+    %li.active
+      = resource.name
+
+  %header.page-header.row
+    %h1.pull-left
+      = resource.name
+    %p.pull-right
+      = link_to t('.edit'), edit_keyword_category_path(resource), :class => 'btn'
+      = link_to t('keywords.index.new'), new_keyword_path, :class => 'btn btn-primary'
+
+  %section.row
+    %table.table.table-bordered.table-striped
+      %tr
+        %th= t('keyword')
+        %th= t('actions')
+
+      - resource.keywords.each do |keyword|
+        %tr
+          %td= link_to keyword.name, keyword_path(keyword)
+          %td
+            = link_to t('edit'), edit_keyword_path(keyword), :class => 'btn btn-small'
+            = link_to t('delete'), keyword_path(keyword), method: :delete, confirm: t('.confirm_delete'), :class => 'btn btn-danger btn-small'
+
+    = paginate collection

@@ -1,12 +1,14 @@
-= simple_form_for resource do |f|
-  = f.input :title
+= simple_form_for resource, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :title, :input_html => { :class => 'span3' }
   = f.input :level, collection: Sheet::LEVELS
   = f.input :up_to_date
-  = f.error :keywords
-  %ul.keywords
-    - KeywordCategory.all.each do |keyword_category|
-      %li
-        %p= keyword_category.name
-        = f.association :keywords, collection: keyword_category.keywords, as: :check_boxes, label: false, error: false
+  - if resource.errors.has_key?(:keywords)
+    .alert.alert-error
+      = f.error :keywords
+  - KeywordCategory.all.each do |keyword_category|
+    %h6= keyword_category.name
+    = f.association :keywords, collection: keyword_category.keywords, as: :check_boxes, label: false, error: false
+
   = f.input  :description, input_html: { :class => 'markitup' }
-  = f.button :submit
+  %form-actions
+    = f.button :submit, :class => 'btn btn-primary'
