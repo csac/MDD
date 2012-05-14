@@ -5,4 +5,6 @@ class History < ActiveRecord::Base
   validates :subject, presence: true
   validates :user, presence: true
   validates :action, presence: true
+
+  attr_accessible :user, :subject, :action
 end

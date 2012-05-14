@@ -4,6 +4,16 @@ class SheetsController < InheritedResources::Base
   authorize_resource
   respond_to :html
 
+  def create
+    super
+    resource.histories << History.create(user: current_user, subject: resource, action: 'create')
+  end
+
+  def update
+    super
+    resource.histories << History.create(user: current_user, subject: resource, action: 'update')
+  end
+
   protected
 
   def collection
