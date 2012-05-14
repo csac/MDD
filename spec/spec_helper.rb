@@ -19,6 +19,11 @@ RSpec.configure do |config|
   # config.mock_with :flexmock
   # config.mock_with :rr
 
+  # always render views in specs
+  config.render_views
+  # Devise Spec Helpers
+  config.include Devise::TestHelpers, type: :controller
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
