@@ -2,14 +2,14 @@
 
   %ul.breadcrumb.row
     %li
-      = link_to t('categories'), keyword_categories_path
+      = link_to t('nav.keyword_categories.index'), keyword_categories_path
       %span.divider /
     %li.active
-      = t('.new')
+      = t('nav.keyword_categories.new')
 
   %header.page-header.row
     %h1.pull-left
-      = t('new_category')
+      = t('.title')
 
   = render :partial => 'form'
 

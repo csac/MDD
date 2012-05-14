@@ -2,17 +2,17 @@
 
   %ul.breadcrumb.row
     %li
-      = link_to t('.sheets'), sheets_path
+      = link_to t('nav.sheets.index'), sheets_path
       %span.divider /
     %li
       = link_to resource.title, sheet_path(resource)
     %li.active
       %span.divider /
-      = t('edit')
+      = t('nav.sheets.edit')
 
   %header.page-header.row
     %h1.pull-left
-      = t('edit_sheet')
+      = t('.title')
 
   = render :partial => 'form'
 

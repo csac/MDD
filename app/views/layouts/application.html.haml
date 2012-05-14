@@ -12,19 +12,19 @@
   %header.navbar
     .navbar-inner
       .container
-        = link_to t('.home'), root_path, class: "brand"
+        = link_to t('nav.home'), root_path, class: "brand"
         %ul.nav
-          %li= link_to t('.sheets'), sheets_path
+          %li= link_to t('nav.sheets.index'), sheets_path
           - if user_signed_in? && current_user.has_role?(:administrator)
-            %li= link_to t('.keywords'), keywords_path
-            %li= link_to t('.keyword_categories'), keyword_categories_path
+            %li= link_to t('nav.keywords.index'), keywords_path
+            %li= link_to t('nav.keyword_categories.index'), keyword_categories_path
         %form.navbar-search.pull-left
           %input.search-query.span2
         %ul.nav.pull-right
           - if user_signed_in?
-            %li= link_to t('.sign_out'), destroy_user_session_path, method: :delete
+            %li= link_to t('nav.sign_out'), destroy_user_session_path, method: :delete
           - else
-            %li= link_to t('.sign_in'), new_user_session_path
+            %li= link_to t('nav.sign_in'), new_user_session_path
 
   %section.container
     = render :partial => 'shared/notifications'

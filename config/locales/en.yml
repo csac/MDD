@@ -1,30 +1,80 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  layouts:
-    application:
-      home: 'Home'
-      sheets: 'Sheets'
-      keywords: 'Keywords'
-      keyword_categories: 'Keywords categories'
-      sign_out: 'Sign out'
-      sign_in: 'Sign in'
-  sheets:
-    index:
-      new: 'New sheet'
-      confirm_delete: 'Are you sure?'
+  # Keyword Category resource
   keyword_categories:
     index:
-      new: 'New Keyword categorie'
-      confirm_delete: 'Are you sure?'
+      category: 'Category'
+      actions: 'Actions'
     show:
-      confirm_delete: 'Are you sure?'
+      keyword: 'Keyword'
+      actions: 'actions'
+    new:
+      title: 'New Keyword Category'
+    edit:
+      title: 'Edit Keyword Category'
+
+  # Keyword resource
   keywords:
     index:
-      new: 'New Keyword'
-      confirm_delete: 'Are you sure?'
+      title: 'Keywords'
+      category: 'Category'
+      keyword: 'Keyword'
+      actions: 'Actions'
     show:
-      confirm_delete: 'Are you sure?'
+      sheet: 'Sheet'
+      actions: 'Actions'
+    new:
+      title: 'New Keyword'
+    edit:
+      title: 'Edit Keyword'
+
+  # Sheet resource
+  sheets:
+    index:
+      title: 'Sheets'
+      keywords: 'keywords'
+      sheet: 'Sheet'
+      actions: 'Actions'
+    new:
+      title: 'New Sheet'
+    edit:
+      title: 'Edit Sheet'
+
+  # Action Buttons
+  actions:
+    confirm_delete: 'Are you sure?'
+
+    keywords:
+      new: 'New Keyword'
+      edit: 'Edit'
+      delete: 'Delete'
+    keyword_categories:
+      new: 'New Keyword Category'
+      edit: 'Edit'
+      delete: 'Delete'
+    sheets:
+      new: 'New sheet'
+      edit: 'Edit'
+      delete: 'Delete'
+
+  # Menu and breadcrumb
+  nav:
+    home: 'Home'
+    sign_out: 'Sign out'
+    sign_in: 'Sign in'
+
+    keyword_categories:
+      index: 'Keyword Categories'
+      new: 'New'
+      edit: 'Edit'
+    keywords:
+      index: 'Keywords'
+      new: 'New'
+      edit: 'Edit'
+    sheets:
+      index: 'Sheets'
+      new: 'New'
+      edit: 'Edit'
+
   errors:
     one_skill_keyword: 'You must select at least one skill keyword'
+

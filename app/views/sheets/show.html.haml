@@ -2,7 +2,7 @@
 
   %ul.breadcrumb.row
     %li
-      = link_to t('.sheets'), sheets_path
+      = link_to t('nav.sheets.index'), sheets_path
       %span.divider /
     %li.active
       = resource.title
@@ -11,7 +11,7 @@
     %h1.pull-left
       = resource.title
     .pull-right
-      = link_to t('.edit'), edit_sheet_path(resource), :class => 'btn btn-primary'
+      = link_to t('actions.sheets.edit'), edit_sheet_path(resource), :class => 'btn btn-primary'
     .metadata
       %span.badge= resource.level
       - resource.keywords.each do |keyword|
