@@ -16,7 +16,7 @@ class Sheet < ActiveRecord::Base
   LEVELS = [1, 2, 3]
 
   has_and_belongs_to_many :keywords
-  has_many   :histories, dependent: :destroy, as: :historyable
+  has_many   :histories, dependent: :destroy, as: :subject
 
   accepts_nested_attributes_for :keywords
 

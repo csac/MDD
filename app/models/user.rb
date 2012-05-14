@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
   roles_attribute :roles_mask
   roles :administrator, :author
 
-  has_many :histories, dependent: :destroy, as: :historyable
+  has_many :histories, dependent: :destroy, as: :subject
 
   def name
     "#{firstname} #{lastname} <#{email}>"
