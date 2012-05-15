@@ -1,0 +1,14 @@
+fr:
+  simple_form:
+    labels:
+      sheet:
+        title: 'Titre'
+        level: 'Niveau'
+        description: 'Description'
+        up_to_date: 'À jour'
+      keyword_category:
+        name: 'Nom'
+      keyword:
+        keyword_category: 'Catégorie'
+        name: 'Nom'
+

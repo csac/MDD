@@ -1,0 +1,13 @@
+fr:
+  helpers:
+    submit:
+      keyword_category:
+        create: "Créer la catégorie"
+        update: "Sauver"
+      keyword:
+        create: "Créer le mot-clé"
+        update: "Sauver"
+      sheet:
+        create: "Créer la fiche"
+        update: "Sauver"
+
