@@ -7,5 +7,7 @@ Mdd::Application.routes.draw do
   resources :keyword_categories
   resources :keywords
   resources :sheets
+
+  resources :search, only: [:index]
 end
 

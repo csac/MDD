@@ -45,6 +45,14 @@ fr:
     edit:
       title: 'Editer cette fiche'
 
+  # Search resource
+  search:
+    index:
+      title: 'Resultats'
+      keywords: 'Mots clés'
+      sheet: 'Fiche'
+      actions: 'Actions'
+
   # Action Buttons
   actions:
     confirm_delete: 'Etes-vous sûr de vouloir supprimer cet item ?'
