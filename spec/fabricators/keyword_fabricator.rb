@@ -16,6 +16,6 @@ Fabricator(:keyword, class_name: :keyword) do
 end
 
 Fabricator(:skill_keyword, from: :keyword) do
-  keyword_category! { Fabricate(:keyword_category, name: 'Pôles de compétence') }
+  keyword_category! { k = KeywordCategory.where(name: 'Pôles de compétence').first }
 end
 

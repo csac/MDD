@@ -23,6 +23,8 @@ gem 'redcarpet', '~>2.1.1'
 gem 'devise', '~>2.0.4'
 gem 'cancan', '~>1.6.7'
 gem 'role_model', '~>0.7.0'
+gem 'tire', '~> 0.3.12'
+gem "gaston", "~>0.1.1"
 
 # Gems used only for assets and not required
 # in production environments by default.

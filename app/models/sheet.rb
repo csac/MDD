@@ -13,6 +13,9 @@
 #
 
 class Sheet < ActiveRecord::Base
+  include Tire::Model::Search
+  include Tire::Model::Callbacks
+
   LEVELS = [1, 2, 3]
 
   has_and_belongs_to_many :keywords
@@ -37,6 +40,44 @@ class Sheet < ActiveRecord::Base
       action: action,
       user: user
     )
+  end
+
+  # Search
+
+  mapping do
+    indexes :id,    type: :integer, index: :not_analyzed
+    indexes :title, type: :string,  analyzer: :keyword
+    indexes :title, type: :string,  analyzer: :keyword
+  end
+
+  def to_indexed_json
+    {
+      id:          self.id,
+      title:       self.title,
+      description: self.description
+    }.to_json
+  end
+
+  def self.search(params = {})
+    s = Tire::Search::Search.new(tire.index.name, load: true)
+
+    # Query
+    if params[:query].present?
+      s.query { string params[:query] }
+    else
+      s.query { all }
+    end
+
+    s
+  end
+
+  def self.clear_index!
+    self.tire.index.delete
+    self.tire.index.create mappings: self.tire.mapping_to_hash, settings: self.tire.settings
+  end
+
+  def self.refresh_index!
+    self.tire.index.refresh
   end
 
   private

@@ -37,6 +37,7 @@ RSpec.configure do |config|
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
 
+  # Before
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
@@ -44,9 +45,22 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
+    Fabricate(:keyword_category, name: 'Pôles de compétence')
+  end
+  config.before(:each, search: :true) do
+    tire_clear_index
+  end
+
+  # After
+  config.after(:suite) do
+    tire_clear_index
   end
 
   config.after(:each) do
     DatabaseCleaner.clean
+  end
+
+  def tire_clear_index
+    INDEX_DEFAULT_CLASSES.map{|k| k.constantize.clear_index! }
   end
 end

@@ -31,4 +31,70 @@ describe Sheet do
       sheet.should be_valid
     end
   end
+
+  describe 'search', search: true do
+
+    describe 'api' do
+
+      let!(:sheet1) { Fabricate(:sheet) }
+      let!(:sheet2) { Fabricate(:sheet) }
+
+      before do
+        Sheet.refresh_index!
+      end
+
+      it 'should return a Search object' do
+        Sheet.search.should be_kind_of(Tire::Search::Search)
+      end
+
+      it 'should return all the documents' do
+        results = Sheet.search.perform.results
+        results.size.should == 2
+      end
+
+    end
+
+    context 'with an index on title' do
+
+      let!(:sheet1) { Fabricate(:sheet, title: 'Authentification LDAP') }
+      let!(:sheet2) { Fabricate(:sheet, title: "Mise à jour en préprod d'une application ACAI") }
+
+      before do
+        Sheet.refresh_index!
+      end
+
+      it 'should find 1 document via a query' do
+        results = Sheet.search(query: 'Mise à jour').perform.results
+        results.size.should eq 1
+        results.first.id.should eq sheet2.id
+      end
+
+    end
+
+    context 'with an index on description' do
+
+      let!(:sheet1) do
+        Fabricate(:sheet,
+                  title: 'Un titre',
+                  description: "Introduction et description de l'architecture")
+      end
+      let!(:sheet2) do
+        Fabricate(:sheet,
+                  title: "Un autre titre",
+                  description: "Récupération du war dans le FTP")
+      end
+
+      before do
+        Sheet.refresh_index!
+      end
+
+      it 'should find 1 document via a query' do
+        results = Sheet.search(query: 'ftp').perform.results
+        results.size.should eq 1
+        results.first.id.should eq sheet2.id
+      end
+
+    end
+
+  end
 end

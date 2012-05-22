@@ -1,0 +1,7 @@
+:gaston:
+  tire:
+    host: 'http://localhost:9200'
+:dev:
+  tire:
+    host: 'http://es.af83.com:9200'
+

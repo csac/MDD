@@ -36,4 +36,8 @@ Mdd::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  Tire.configure do
+    logger Rails.root.join('log', 'elasticsearch.log'), level: 'debug'
+  end
 end
