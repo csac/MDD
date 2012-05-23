@@ -14,6 +14,8 @@
       = link_to t('actions.sheets.edit'), edit_sheet_path(resource), :class => 'btn btn-primary'
       = link_to t('actions.sheets.delete'), sheet_path(resource), method: :delete, confirm: t('actions.confirm_delete'), :class => 'btn btn-danger btn-small'
     .metadata
+      %span.last-modified
+        = t(".histories.last_modified", time: resource.updated_at)
       %span.badge= resource.level
       - resource.keywords.each do |keyword|
         %span.label.label-info= keyword.name
