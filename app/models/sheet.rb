@@ -45,9 +45,9 @@ class Sheet < ActiveRecord::Base
   # Search
 
   mapping do
-    indexes :id,    type: :integer, index: :not_analyzed
-    indexes :title, type: :string,  analyzer: :keyword
-    indexes :title, type: :string,  analyzer: :keyword
+    indexes :id,          type: :integer, index: :not_analyzed
+    indexes :title,       type: :string,  analyzer: :keyword
+    indexes :description, type: :string,  analyzer: :keyword
   end
 
   def to_indexed_json
