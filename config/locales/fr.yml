@@ -53,6 +53,17 @@ fr:
         zero: '0 resultat pour "%{query}"'
         one: '1 resultat pour "%{query}"'
         other: '%{count} resultats pour "%{query}"'
+      filters:
+        up_to_date:
+          title: 'Statut'
+          all: 'Tout'
+          yes: 'à jour'
+          no: 'pas à jour'
+        level:
+          title: 'Niveau'
+          '1': 'Niveau 1'
+          '2': 'Niveau 2'
+          '3': 'Niveau 3'
       keywords: 'Mots clés'
       sheet: 'Fiche'
       actions: 'Actions'

@@ -49,6 +49,7 @@ class Sheet < ActiveRecord::Base
     indexes :title,       type: :string,  analyzer: :keyword
     indexes :description, type: :string,  analyzer: :keyword
     indexes :up_to_date,  type: :boolean, index: :not_analyzed
+    indexes :level,       type: :integer, index: :not_analyzed
   end
 
   def to_indexed_json
@@ -56,7 +57,8 @@ class Sheet < ActiveRecord::Base
       id:          self.id,
       title:       self.title,
       description: self.description,
-      up_to_date:  self.up_to_date
+      up_to_date:  self.up_to_date,
+      level:       self.level
     }.to_json
   end
 
@@ -70,7 +72,10 @@ class Sheet < ActiveRecord::Base
       s.query { all }
     end
 
-    s.filter :term, {up_to_date: params[:up_to_date]} if params[:up_to_date].present?
+    # Filters
+    [:up_to_date, :level].each do |term|
+      s.filter :term, {term => params[term]} if params[term].present?
+    end
 
     s
   end
