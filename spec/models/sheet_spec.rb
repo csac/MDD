@@ -96,5 +96,22 @@ describe Sheet do
 
     end
 
+    context 'with an index on update_to_date' do
+
+      let!(:sheet1) { Fabricate(:sheet, up_to_date: true) }
+      let!(:sheet2) { Fabricate(:sheet, up_to_date: false) }
+
+      before do
+        Sheet.refresh_index!
+      end
+
+      it 'should find 1 document via the up_to_date filter' do
+        results = Sheet.search(up_to_date: 'false').perform.results
+        results.size.should eq 1
+        results.first.id.should eq sheet2.id
+      end
+
+    end
+
   end
 end
