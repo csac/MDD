@@ -48,7 +48,10 @@ fr:
   # Search resource
   search:
     index:
-      title: 'Resultats'
+      title:
+        zero: '0 resultat pour "%{query}"'
+        one: '1 resultat pour "%{query}"'
+        other: '%{count} resultats pour "%{query}"'
       keywords: 'Mots clés'
       sheet: 'Fiche'
       actions: 'Actions'

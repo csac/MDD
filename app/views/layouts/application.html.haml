@@ -19,7 +19,7 @@
             %li= link_to t('nav.keywords.index'), keywords_path
             %li= link_to t('nav.keyword_categories.index'), keyword_categories_path
         %form.navbar-search.pull-left{method: 'GET', action: '/search'}
-          %input.search-query.span2{name: 'query'}
+          %input.search-query.span2{name: 'query', value: params[:query]}
         %ul.nav.pull-right
           - if user_signed_in?
             %li= link_to t('nav.sign_out'), destroy_user_session_path, method: :delete
