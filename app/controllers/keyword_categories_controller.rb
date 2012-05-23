@@ -4,6 +4,10 @@ class KeywordCategoriesController < InheritedResources::Base
   authorize_resource
   respond_to :html
 
+  def index
+    redirect_to keywords_path
+  end
+
   def destroy
     resource.destroy
     redirect_to :back

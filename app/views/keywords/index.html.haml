@@ -10,7 +10,7 @@
     - KeywordCategory.all.each do |category|
       %table.table.table-bordered.table-striped
         %tr
-          %th= category.name
+          %th= link_to category.name, keyword_category_path(category)
           %th
             = link_to t('actions.keyword_categories.edit'), edit_keyword_category_path(category), :class => 'btn btn-small'
             = link_to t('actions.keyword_categories.delete'), keyword_category_path(category), method: :delete, confirm: t('actions.confirm_delete'), :class => 'btn btn-danger btn-small'
