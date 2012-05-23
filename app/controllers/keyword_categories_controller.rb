@@ -4,6 +4,11 @@ class KeywordCategoriesController < InheritedResources::Base
   authorize_resource
   respond_to :html
 
+  def destroy
+    resource.destroy
+    redirect_to :back
+  end
+
   protected
 
   def collection

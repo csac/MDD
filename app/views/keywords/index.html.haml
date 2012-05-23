@@ -2,22 +2,25 @@
 
   %header.page-header.row
     %h1.pull-left= t('.title')
-    = link_to t('actions.keywords.new'), new_keyword_path, :class => 'btn btn-primary pull-right'
+    .pull-right
+      = link_to t('actions.keywords.new'), new_keyword_path, :class => 'btn btn-primary'
+      = link_to t('actions.keyword_categories.new'), new_keyword_category_path, :class => 'btn btn-primary'
 
   %section.row
-    %table.table.table-bordered.table-striped
-      %tr
-        %th= t('.category')
-        %th= t('.keyword')
-        %th= t('.actions')
-
-      - collection.each do |keyword|
+    - KeywordCategory.all.each do |category|
+      %table.table.table-bordered.table-striped
         %tr
-          %td= link_to keyword.keyword_category.name, keyword_category_path(keyword.keyword_category)
-          %td= link_to keyword.name, keyword_path(keyword)
-          %td
-            = link_to t('actions.keywords.edit'), edit_keyword_path(keyword), :class => 'btn btn-small'
-            = link_to t('actions.keywords.delete'), keyword_path(keyword), method: :delete, confirm: t('actions.confirm_delete'), :class => 'btn btn-danger btn-small'
+          %th= category.name
+          %th
+            = link_to t('actions.keyword_categories.edit'), edit_keyword_category_path(category), :class => 'btn btn-small'
+            = link_to t('actions.keyword_categories.delete'), keyword_category_path(category), method: :delete, confirm: t('actions.confirm_delete'), :class => 'btn btn-danger btn-small'
+
+        - category.keywords.each do |keyword|
+          %tr
+            %td= link_to keyword.name, keyword_path(keyword)
+            %td
+              = link_to t('actions.keywords.edit'), edit_keyword_path(keyword), :class => 'btn btn-small'
+              = link_to t('actions.keywords.delete'), keyword_path(keyword), method: :delete, confirm: t('actions.confirm_delete'), :class => 'btn btn-danger btn-small'
 
     = paginate collection
 
