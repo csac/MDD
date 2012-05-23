@@ -13,6 +13,8 @@
   %header.page-header.row
     %h1.pull-left
       = t('.title')
+    .pull-right
+      = link_to t('actions.sheets.delete'), sheet_path(resource), method: :delete, confirm: t('actions.confirm_delete'), :class => 'btn btn-danger btn-small'
 
   = render :partial => 'form'
 
