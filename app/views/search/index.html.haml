@@ -5,31 +5,31 @@
     = link_to t('actions.sheets.new'), new_sheet_path, :class => 'btn btn-primary pull-right'
 
   %section.filters.row
-    .span3
-      %h2= t('.filters.date.title')
-      = link_to t('.filters.date.all'), request.query_parameters.merge(updated: '')
-      = link_to t('.filters.date.today'), request.query_parameters.merge(updated: 'today')
-      = link_to t('.filters.date.yesterday'), request.query_parameters.merge(updated: 'yesterday')
-      = link_to t('.filters.date.this_week'), request.query_parameters.merge(updated: 'this-week')
-      = link_to t('.filters.date.this_month'), request.query_parameters.merge(updated: 'this-month')
+    %dl.span3
+      %dt= t('.filters.date.title')
+      %dd= link_to t('.filters.date.all'), request.query_parameters.merge(updated: ''), :class => is_active?('updated', 'all')
+      %dd= link_to t('.filters.date.today'), request.query_parameters.merge(updated: 'today'), :class => is_active?('updated', 'today')
+      %dd= link_to t('.filters.date.yesterday'), request.query_parameters.merge(updated: 'yesterday'), :class => is_active?('updated', 'yesterday')
+      %dd= link_to t('.filters.date.this_week'), request.query_parameters.merge(updated: 'this-week'), :class => is_active?('updated', 'this-week')
+      %dd= link_to t('.filters.date.this_month'), request.query_parameters.merge(updated: 'this-month'), :class => is_active?('updated', 'this-month')
 
-    .span3
-      %h2= t('.filters.keywords.title')
-      = link_to t('.filters.keywords.all'), request.query_parameters.merge(tag: '')
+    %dl.span3
+      %dt= t('.filters.keywords.title')
+      %dd= link_to t('.filters.keywords.all'), request.query_parameters.merge(tag: ''), :class => is_active?('tag', 'all')
       - @sheets.facets['tags']['terms'].each do |keyword|
-        = link_to keyword['term'], request.query_parameters.merge(tag: keyword['term'])
+        %dd= link_to keyword['term'], request.query_parameters.merge(tag: keyword['term']), :class => is_active?('tag', keyword['term'])
 
-    .span3
-      %h2= t('.filters.level.title')
-      = link_to t('.filters.level.all'), request.query_parameters.merge(level: '')
+    %dl.span3
+      %dt= t('.filters.level.title')
+      %dd= link_to t('.filters.level.all'), request.query_parameters.merge(level: ''), :class => is_active?('level', 'all')
       - (1..3).each do |level|
-        = link_to t(".filters.level.#{level}"), request.query_parameters.merge(level: level)
+        %dd= link_to t(".filters.level.#{level}"), request.query_parameters.merge(level: level), :class => is_active?('level', level.to_s)
 
-    .span3
-      %h2= t('.filters.up_to_date.title')
-      = link_to t('.filters.up_to_date.all'), request.query_parameters.merge(up_to_date: '')
-      = link_to t('.filters.up_to_date.yes'), request.query_parameters.merge(up_to_date: true)
-      = link_to t('.filters.up_to_date.no'), request.query_parameters.merge(up_to_date: false)
+    %dl.span3
+      %dt= t('.filters.up_to_date.title')
+      %dd= link_to t('.filters.up_to_date.all'), request.query_parameters.merge(up_to_date: ''), :class => is_active?('up_to_date', 'all')
+      %dd= link_to t('.filters.up_to_date.yes'), request.query_parameters.merge(up_to_date: true), :class => is_active?('up_to_date', 'true')
+      %dd= link_to t('.filters.up_to_date.no'), request.query_parameters.merge(up_to_date: false), :class => is_active?('up_to_date', 'false')
 
   %section.row
     %table.table.table-bordered.table-striped
