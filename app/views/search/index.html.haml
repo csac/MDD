@@ -4,7 +4,7 @@
     %h1.pull-left= t('.title', count: @sheets.size, query: params[:query])
     = link_to t('actions.sheets.new'), new_sheet_path, :class => 'btn btn-primary pull-right'
 
-  %section.row
+  %section.filters.row
     .span3
       %h2= t('.filters.date.title')
       = link_to t('.filters.date.all'), request.query_parameters.merge(updated: '')
@@ -12,6 +12,12 @@
       = link_to t('.filters.date.yesterday'), request.query_parameters.merge(updated: 'yesterday')
       = link_to t('.filters.date.this_week'), request.query_parameters.merge(updated: 'this-week')
       = link_to t('.filters.date.this_month'), request.query_parameters.merge(updated: 'this-month')
+
+    .span3
+      %h2= t('.filters.keywords.title')
+      = link_to t('.filters.keywords.all'), request.query_parameters.merge(tag: '')
+      - @sheets.facets['tags']['terms'].each do |keyword|
+        = link_to keyword['term'], request.query_parameters.merge(tag: keyword['term'])
 
     .span3
       %h2= t('.filters.level.title')

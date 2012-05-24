@@ -51,6 +51,7 @@ class Sheet < ActiveRecord::Base
     indexes :up_to_date,  type: :boolean, index: :not_analyzed
     indexes :level,       type: :integer, index: :not_analyzed
     indexes :updated_at,  type: :date,    index: :not_analyzed
+    indexes :tag,         type: :string,  analyzer: :keyword
   end
 
   def to_indexed_json
@@ -60,7 +61,8 @@ class Sheet < ActiveRecord::Base
       description: self.description,
       up_to_date:  self.up_to_date,
       level:       self.level,
-      updated_at:  self.updated_at
+      updated_at:  self.updated_at,
+      tag:         self.keywords.map(&:name)
     }.to_json
   end
 
@@ -78,6 +80,7 @@ class Sheet < ActiveRecord::Base
     [:up_to_date, :level].each do |term|
       s.filter :term, {term => params[term]} if params[term].present?
     end
+    s.filter :term, tag: params[:tag] if params[:tag].present?
 
     # Date
     case params[:updated]
@@ -89,6 +92,11 @@ class Sheet < ActiveRecord::Base
       s.filter :range, updated_at: {gte: Date.today.beginning_of_week, lt: Date.tomorrow}
     when 'this-month'
       s.filter :range, updated_at: {gte: Date.today.beginning_of_month, lt: Date.tomorrow}
+    end
+
+    # Facets
+    s.facet 'tags', global: true do
+      terms :tag
     end
 
     s

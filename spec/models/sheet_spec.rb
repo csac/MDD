@@ -176,5 +176,36 @@ describe Sheet do
 
     end
 
+    context 'with an index on keywords' do
+
+      let!(:keyword1) { Fabricate(:keyword) }
+      let!(:sheet1)   { Fabricate(:sheet)   }
+      let!(:sheet2) do
+        s = Fabricate(:sheet)
+        s.keywords << Fabricate(:keyword, name: 'documentation')
+        s
+      end
+
+      before do
+        sheet2.save
+        Sheet.refresh_index!
+      end
+
+      it 'should find 1 document via a query' do
+        results = Sheet.search(query: 'documentation').perform.results
+        results.size.should eq 1
+        results.first.id.should eq sheet2.id
+      end
+
+      it 'should have tags facets' do
+        facets = Sheet.search.perform.results.facets['tags']['terms']
+        facets.size.should eq 3
+
+        facets.should include({'term' => sheet1.keywords.first.name, 'count' => 1})
+        facets.should include({'term' => sheet2.keywords.first.name, 'count' => 1})
+        facets.should include({'term' => 'documentation', 'count' => 1})
+      end
+
+    end
   end
 end
