@@ -1,6 +1,6 @@
 = simple_form_for resource, :html => { :class => 'form-horizontal' } do |f|
   = f.input :title, :input_html => { :class => 'span3' }
-  = f.input :level, collection: Sheet::LEVELS
+  = f.input :level, as: :radio_buttons, collection: Sheet::LEVELS
   = f.input :up_to_date
   - if resource.errors.has_key?(:keywords)
     .alert.alert-error
