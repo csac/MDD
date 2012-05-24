@@ -54,13 +54,21 @@ fr:
         one: '1 resultat pour "%{query}"'
         other: '%{count} resultats pour "%{query}"'
       filters:
+        date:
+          title: 'Modifié'
+          all: 'Tout'
+          today: "Aujourd'hui"
+          yesterday: 'Hier'
+          this_week: 'Cette semaine'
+          this_month: 'Ce mois-ci'
         up_to_date:
           title: 'Statut'
           all: 'Tout'
-          yes: 'à jour'
-          no: 'pas à jour'
+          'yes': 'à jour'
+          'no': 'pas à jour'
         level:
           title: 'Niveau'
+          all: 'Tout'
           '1': 'Niveau 1'
           '2': 'Niveau 2'
           '3': 'Niveau 3'

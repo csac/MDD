@@ -130,5 +130,51 @@ describe Sheet do
 
     end
 
+    context 'with an index on updated_at' do
+
+      let!(:sheet1) { Fabricate(:sheet) }
+      let!(:sheet2) { Fabricate(:sheet, updated_at: sheet1.updated_at - 1.day) }
+      let!(:sheet3) { Fabricate(:sheet, updated_at: sheet1.updated_at.beginning_of_week - 1.day) }
+      let!(:sheet4) { Fabricate(:sheet, updated_at: sheet1.updated_at.beginning_of_month - 1.day) }
+
+      before do
+        Sheet.refresh_index!
+      end
+
+      it 'should find 1 document updated today' do
+        results = Sheet.search(updated: 'today').perform.results
+        results.size.should eq 1
+        results.first.id.should eq sheet1.id
+      end
+
+      it 'should find 1 document updated yesterday' do
+        results = Sheet.search(updated: 'yesterday').perform.results
+        results.size.should eq 1
+        results.first.id.should eq sheet2.id
+      end
+
+      it 'should find 1 document updated 1 week ago' do
+        results = Sheet.search(updated: 'this-week').perform.results
+        results.size.should eq 2
+
+        ids = results.map(&:id)
+        ids.should include(sheet1.id)
+        ids.should include(sheet2.id)
+        ids.should_not include(sheet3.id)
+      end
+
+      it 'should find 1 document updated 1 month ago' do
+        results = Sheet.search(updated: 'this-month').perform.results
+        results.size.should eq 3
+
+        ids = results.map(&:id)
+        ids.should include(sheet1.id)
+        ids.should include(sheet2.id)
+        ids.should include(sheet3.id)
+        ids.should_not include(sheet4.id)
+      end
+
+    end
+
   end
 end

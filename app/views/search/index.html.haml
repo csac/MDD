@@ -6,6 +6,14 @@
 
   %section.row
     .span3
+      %h2= t('.filters.date.title')
+      = link_to t('.filters.date.all'), request.query_parameters.merge(updated: '')
+      = link_to t('.filters.date.today'), request.query_parameters.merge(updated: 'today')
+      = link_to t('.filters.date.yesterday'), request.query_parameters.merge(updated: 'yesterday')
+      = link_to t('.filters.date.this_week'), request.query_parameters.merge(updated: 'this-week')
+      = link_to t('.filters.date.this_month'), request.query_parameters.merge(updated: 'this-month')
+
+    .span3
       %h2= t('.filters.level.title')
       = link_to t('.filters.level.all'), request.query_parameters.merge(level: '')
       - (1..3).each do |level|
