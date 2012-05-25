@@ -36,7 +36,6 @@
       %tr
         %th= t('.keywords')
         %th= t('.sheet')
-        %th= t('.actions')
 
       - @sheets.each do |sheet|
         %tr
@@ -44,9 +43,6 @@
             - sheet.keywords.each do |keyword|
               %span.label.label-info= keyword.name
           %td= link_to sheet.title, sheet_path(sheet)
-          %td
-            = link_to t('actions.sheets.edit'), edit_sheet_path(sheet), :class => 'btn btn-small'
-            = link_to t('actions.sheets.delete'), sheet_path(sheet), method: :delete, confirm: t('actions.confirm_delete'), :class => 'btn btn-danger btn-small'
 
     = paginate @sheets
 

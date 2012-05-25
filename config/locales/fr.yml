@@ -34,7 +34,6 @@ fr:
       title: 'Fiches'
       keywords: 'Mots clés'
       sheet: 'Fiche'
-      actions: 'Actions'
     show:
       history: 'Historique'
       histories:
@@ -77,7 +76,6 @@ fr:
           'no': 'pas à jour'
       keywords: 'Mots clés'
       sheet: 'Fiche'
-      actions: 'Actions'
 
   # Action Buttons
   actions:
