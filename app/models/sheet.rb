@@ -99,6 +99,10 @@ class Sheet < ActiveRecord::Base
       terms :tag
     end
 
+    # Pagination
+    s.from params[:page] ? (params[:page].to_i - 1) : 0
+    s.size params[:per_page] || Kaminari.config.default_per_page
+
     s
   end
 

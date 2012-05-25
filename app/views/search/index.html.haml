@@ -1,7 +1,7 @@
 %article.search
 
   %header.page-header.row
-    %h1.pull-left= t('.title', count: @sheets.size, query: params[:query])
+    %h1.pull-left= t('.title', count: @sheets.total_count, query: params[:query])
     = link_to t('actions.sheets.new'), new_sheet_path, :class => 'btn btn-primary pull-right'
 
   %section.filters.row
@@ -44,6 +44,6 @@
               %span.label.label-info= keyword.name
           %td= link_to sheet.title, sheet_path(sheet)
 
-    = paginate @sheets
+    = paginate Kaminari.paginate_array(@sheets.to_a, total_count: @sheets.total).page(params[:page] || 1)
 
 

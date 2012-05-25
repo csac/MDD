@@ -52,6 +52,18 @@ describe Sheet do
         results.size.should == 2
       end
 
+      it 'should paginate documents' do
+        results = Sheet.search(page: 1, per_page: 1).perform.results
+        results.size.should == 1
+        s1 = results.first
+
+        results = Sheet.search(page: 2, per_page: 1).perform.results
+        results.size.should == 1
+        s2 = results.first
+
+        s1.id.should_not eq s2.id
+      end
+
     end
 
     context 'with an index on title' do
@@ -207,5 +219,6 @@ describe Sheet do
       end
 
     end
+
   end
 end
