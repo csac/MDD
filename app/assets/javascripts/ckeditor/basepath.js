@@ -1,0 +1,1 @@
+window.CKEDITOR_BASEPATH = 'http://' + window.location.host + '/assets/ckeditor/';
