@@ -9,6 +9,7 @@
     %h6= keyword_category.name
     = f.association :keywords, collection: keyword_category.keywords, as: :check_boxes, label: false, error: false
 
-  = f.input  :description, input_html: { :class => 'markitup' }
+  = f.input :description, :as => :ckeditor, label: false
   %form-actions
     = f.button :submit, :class => 'btn btn-primary'
+

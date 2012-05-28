@@ -25,6 +25,9 @@ gem 'cancan', '~>1.6.7'
 gem 'role_model', '~>0.7.0'
 gem 'tire', '~> 0.3.12'
 gem "gaston", "~>0.1.1"
+gem "ckeditor", "~> 3.7.1"
+gem "carrierwave", "~> 0.6.2"
+gem "mini_magick"
 
 # Gems used only for assets and not required
 # in production environments by default.
