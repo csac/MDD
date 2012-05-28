@@ -25,3 +25,5 @@ load "af83/database"
 # load "af83/resque"
 # load "af83/js_routes"
 
+after 'deploy:update_code', 'deploy:migrate'
+
