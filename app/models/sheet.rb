@@ -30,10 +30,6 @@ class Sheet < ActiveRecord::Base
 
   attr_accessible :title, :description, :level, :up_to_date, :keyword_ids
 
-  def description_html
-    Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(description)
-  end
-
   def historize(user, action='create')
     History.create(
       subject: self,
