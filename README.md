@@ -65,7 +65,7 @@ Create user
 
 ``` bash
 bundle exec rails c
->> User.find_or_initialize_by_email("admin@developpement-durable.gouv.fr")
+>> u = User.find_or_initialize_by_email("admin@developpement-durable.gouv.fr")
 >> u.password = 'password' # => "password"
 >> u.roles = [:administrator] #=> [:administrator]
 >> u.save # => true
