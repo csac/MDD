@@ -49,8 +49,9 @@ namespace :db do
 
     desc "Create 10 users"
     task :users => :init do
-      print "Create 10 users"
-      (10 * nb).times {
+      nbr = 10 * nb
+      print "Create #{nbr} users"
+      nbr.times {
         generate_user
         print_more
       }
@@ -59,8 +60,9 @@ namespace :db do
 
     desc "Create 10 sheets"
     task :sheets => :init do
-      print "Create 10 sheets"
-      (10 * nb).times {
+      nbr = 10 * nb
+      print "Create #{nbr} sheets"
+      nbr.times {
         generate_sheet
         print_more
       }
