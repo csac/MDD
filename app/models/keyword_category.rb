@@ -10,7 +10,7 @@
 #
 
 class KeywordCategory < ActiveRecord::Base
-  has_many :keywords
+  has_many :keywords, dependent: :destroy
   accepts_nested_attributes_for :keywords
 
   validates :name, :presence => true
@@ -21,3 +21,4 @@ class KeywordCategory < ActiveRecord::Base
     KeywordCategory.where(name: 'Pôles de compétence').first
   end
 end
+

@@ -12,7 +12,7 @@
 
 Fabricator(:keyword, class_name: :keyword) do
   name { Faker::Name.name }
-  keyword_category { Fabricate(:keyword_category) }
+  keyword_category! { Fabricate(:keyword_category) }
 end
 
 Fabricator(:skill_keyword, from: :keyword) do
