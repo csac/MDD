@@ -61,7 +61,7 @@ fr:
           this_week: 'Cette semaine'
           this_month: 'Ce mois-ci'
         keywords:
-          title: 'Mots clés'
+          title: 'Pôles de compétence'
           all: 'Tout'
         level:
           title: 'Niveau'

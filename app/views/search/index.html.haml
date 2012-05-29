@@ -16,8 +16,8 @@
     %dl.span3
       %dt= t('.filters.keywords.title')
       %dd= link_to t('.filters.keywords.all'), request.query_parameters.merge(tag: ''), :class => is_active?('tag', 'all')
-      - @sheets.facets['tags']['terms'].each do |keyword|
-        %dd= link_to keyword['term'], request.query_parameters.merge(tag: keyword['term']), :class => is_active?('tag', keyword['term'])
+      - KeywordCategory.where(name: 'Pôles de compétence').first.keywords.each do |keyword|
+        %dd= link_to keyword.name, request.query_parameters.merge(tag: keyword.name), :class => is_active?('tag', keyword.name)
 
     %dl.span3
       %dt= t('.filters.level.title')
