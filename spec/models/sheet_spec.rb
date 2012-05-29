@@ -64,6 +64,16 @@ describe Sheet do
         s1.id.should_not eq s2.id
       end
 
+      it 'should not fail when giving a bad query' do
+        results = nil
+
+        expect {
+          results = Sheet.search(query: 'title:').perform.results
+        }.to_not raise_error
+
+        results.size.should == 0
+      end
+
     end
 
     context 'with an index on title' do

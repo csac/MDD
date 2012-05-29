@@ -67,6 +67,10 @@ class Sheet < ActiveRecord::Base
 
     # Query
     if params[:query].present?
+
+      # Fix bad queries
+      params[:query] = params[:query].split().map { |q| q.end_with?(':') ? q.chomp(':') : q }.join(' ')
+
       s.query { string params[:query] }
     else
       s.query { all }
