@@ -39,6 +39,4 @@
 
       = render partial: "shared/sheets", locals: {sheets: @sheets.to_a}
 
-    = paginate Kaminari.paginate_array(@sheets.to_a, total_count: @sheets.total).page(params[:page] || 1)
-
-
+    = paginate @sheets
