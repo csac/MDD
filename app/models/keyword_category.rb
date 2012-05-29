@@ -16,4 +16,8 @@ class KeywordCategory < ActiveRecord::Base
   validates :name, :presence => true
 
   attr_accessible :name
+
+  def self.skills
+    KeywordCategory.where(name: 'Pôles de compétence').first
+  end
 end
