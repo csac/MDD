@@ -37,12 +37,7 @@
         %th= t('.keywords')
         %th= t('.sheet')
 
-      - @sheets.each do |sheet|
-        %tr
-          %td
-            - sheet.keywords.each do |keyword|
-              %span.label.label-info= keyword.name
-          %td= link_to sheet.title, sheet_path(sheet)
+      = render partial: "shared/sheets", locals: {sheets: @sheets.to_a}
 
     = paginate Kaminari.paginate_array(@sheets.to_a, total_count: @sheets.total).page(params[:page] || 1)
 

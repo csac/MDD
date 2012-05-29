@@ -1,0 +1,7 @@
+- sheets.each do |sheet|
+  %tr
+    %td
+      - sheet.keywords.each do |keyword|
+        %span.label.label-info= keyword.name
+    %td= link_to sheet.title, sheet_path(sheet)
+
