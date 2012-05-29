@@ -19,3 +19,4 @@ class Keyword < ActiveRecord::Base
 
   attr_accessible :name, :keyword_category, :keyword_category_id
 end
+
