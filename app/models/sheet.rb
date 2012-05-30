@@ -40,14 +40,28 @@ class Sheet < ActiveRecord::Base
 
   # Search
 
-  mapping do
-    indexes :id,          type: :integer, index: :not_analyzed
-    indexes :title,       type: :string,  analyzer: :keyword
-    indexes :description, type: :string,  analyzer: :keyword
-    indexes :up_to_date,  type: :boolean, index: :not_analyzed
-    indexes :level,       type: :integer, index: :not_analyzed
-    indexes :updated_at,  type: :date,    index: :not_analyzed
-    indexes :tag,         type: :string,  analyzer: :keyword
+  ES_SETTINGS = {
+    analysis: {
+      analyzer: {
+        tag: {
+          tokenizer: "letter",
+          filter:  %w{asciifolding lowercase elision},
+          type: "custom"
+        },
+      }
+    }
+  }
+
+  settings ES_SETTINGS do
+    mapping do
+      indexes :id,          type: :integer, index: :not_analyzed
+      indexes :title,       type: :string,  analyzer: :french
+      indexes :description, type: :string,  analyzer: :french
+      indexes :up_to_date,  type: :boolean, index: :not_analyzed
+      indexes :level,       type: :integer, index: :not_analyzed
+      indexes :updated_at,  type: :date,    index: :not_analyzed
+      indexes :tag,         type: :string,  analyzer: :tag
+    end
   end
 
   def to_indexed_json

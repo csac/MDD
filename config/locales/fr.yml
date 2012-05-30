@@ -49,9 +49,9 @@ fr:
   search:
     index:
       title:
-        zero: '0 resultat pour "%{query}"'
-        one: '1 resultat pour "%{query}"'
-        other: '%{count} resultats pour "%{query}"'
+        zero: 'Aucun résultat pour "%{query}"'
+        one: '1 résultat pour "%{query}"'
+        other: '%{count} résultats pour "%{query}"'
       filters:
         date:
           title: 'Modifié'
