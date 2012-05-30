@@ -80,7 +80,16 @@ class Sheet < ActiveRecord::Base
     [:up_to_date, :level].each do |term|
       s.filter :term, {term => params[term]} if params[term].present?
     end
-    s.filter :term, tag: params[:tag] if params[:tag].present?
+
+    # Tags
+    tag, most_used_keyword = params[:tag], params['most-used-keyword']
+
+    if tag.present? && most_used_keyword.present?
+      s.filter :and, {term: {tag: tag}}, {term: {tag: most_used_keyword}}
+    else
+      tag = tag.present? ? tag : most_used_keyword
+      s.filter :term, tag: tag if tag.present?
+    end
 
     # Date
     case params[:updated]

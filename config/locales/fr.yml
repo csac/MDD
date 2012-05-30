@@ -63,6 +63,9 @@ fr:
         keywords:
           title: 'Pôles de compétence'
           all: 'Tout'
+        most_used_keywords:
+          title: 'Mots clés les plus utilisés'
+          all: 'Tout'
         level:
           title: 'Niveau'
           all: 'Tout'
