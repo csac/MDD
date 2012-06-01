@@ -116,6 +116,11 @@ fr:
       new: 'Ajouter une fiche'
       edit: 'Editer'
 
+  views:
+    pagination:
+      previous: 'Précédent'
+      next: 'Suivant'
+
   errors:
     one_skill_keyword: 'Merci de sélectionner au moins un mot clé dans la catégorie "Pôles de compétence"'
 
