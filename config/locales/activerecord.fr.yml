@@ -1,0 +1,26 @@
+fr:
+  activerecord:
+    errors:
+      models:
+        sheet:
+          attributes:
+            title:
+              blank: "Le titre est obligatoire."
+            level:
+              blank: "Le niveau est obligatoire."
+            description:
+              blank: "Le contenu de la page ne peux pas être vide."
+
+        keyword:
+          attributes:
+            keyword_category:
+              blank: "Veuillez choisir une catégorie."
+            name:
+              blank: "Le nom est obligatoire."
+
+
+        keyword_category:
+          attributes:
+            name:
+              blank: "Le nom est obligatoire."
+
