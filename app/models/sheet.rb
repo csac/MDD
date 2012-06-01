@@ -40,28 +40,14 @@ class Sheet < ActiveRecord::Base
 
   # Search
 
-  ES_SETTINGS = {
-    analysis: {
-      analyzer: {
-        tag: {
-          tokenizer: "letter",
-          filter:  %w{asciifolding lowercase elision},
-          type: "custom"
-        },
-      }
-    }
-  }
-
-  settings ES_SETTINGS do
-    mapping do
-      indexes :id,          type: :integer, index: :not_analyzed
-      indexes :title,       type: :string,  analyzer: :french
-      indexes :description, type: :string,  analyzer: :french
-      indexes :up_to_date,  type: :boolean, index: :not_analyzed
-      indexes :level,       type: :integer, index: :not_analyzed
-      indexes :updated_at,  type: :date,    index: :not_analyzed
-      indexes :tag,         type: :string,  analyzer: :tag
-    end
+  mapping do
+    indexes :id,          type: :integer, index: :not_analyzed
+    indexes :title,       type: :string,  analyzer: :french
+    indexes :description, type: :string,  analyzer: :french
+    indexes :up_to_date,  type: :boolean, index: :not_analyzed
+    indexes :level,       type: :integer, index: :not_analyzed
+    indexes :updated_at,  type: :date,    index: :not_analyzed
+    indexes :tag,         type: :string,  index: :not_analyzed
   end
 
   def to_indexed_json
@@ -119,7 +105,7 @@ class Sheet < ActiveRecord::Base
 
     # Facets
     s.facet 'tags', global: true do
-      terms :tag
+      terms :tag, exclude: KeywordCategory.skills.keywords.map(&:name)
     end
 
     # Pagination
