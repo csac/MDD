@@ -15,15 +15,15 @@
 
     %dl.span2
       %dt= t('.filters.keywords.title')
-      %dd= link_to t('.filters.keywords.all'), request.query_parameters.merge(tag: nil), :class => is_active?('tag', 'all')
+      %dd= link_to t('.filters.keywords.all'), request.query_parameters.merge('tags' => nil), :class => is_active?('tags', 'all')
       - KeywordCategory.skills.keywords.sort_by(&:name).each do |keyword|
-        %dd= link_to keyword.name, request.query_parameters.merge(tag: keyword.name), :class => is_active?('tag', keyword.name)
+        %dd= link_to keyword.name, request.query_parameters.merge('tags[]' => keyword.name), :class => is_active?('tags', keyword.name)
 
     %dl.span2
       %dt= t('.filters.most_used_keywords.title')
-      %dd= link_to t('.filters.most_used_keywords.all'), request.query_parameters.merge('most-used-keyword' => nil), :class => is_active?('most-used-keyword', 'all')
+      %dd= link_to t('.filters.most_used_keywords.all'), request.query_parameters.merge('most-used-keywords' => nil), :class => is_active?('most-used-keywords', 'all')
       - firsts(@sheets.facets['tags'], 10).each do |keyword|
-        %dd= link_to "#{keyword['term']} (#{keyword['count']})", request.query_parameters.merge('most-used-keyword' => keyword['term']), :class => is_active?('most-used-keyword', keyword['term'])
+        %dd= link_to "#{keyword['term']} (#{keyword['count']})", request.query_parameters.merge('most-used-keywords[]' => keyword['term']), :class => is_active?('most-used-keywords', keyword['term'])
 
     %dl.span2
       %dt= t('.filters.level.title')

@@ -12,6 +12,8 @@ class SearchController < ApplicationController
   def is_active?(filter, value)
     if value == 'all' && params[filter].blank?
       'active'
+    elsif params[filter].kind_of?(Array) and params[filter].include?(value)
+      'active'
     elsif params[filter] == value
       'active'
     else

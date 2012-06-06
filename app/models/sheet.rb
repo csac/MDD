@@ -47,7 +47,7 @@ class Sheet < ActiveRecord::Base
     indexes :up_to_date,  type: :boolean, index: :not_analyzed
     indexes :level,       type: :integer, index: :not_analyzed
     indexes :updated_at,  type: :date,    index: :not_analyzed
-    indexes :tag,         type: :string,  index: :not_analyzed
+    indexes :tags,        type: :string,  index: :not_analyzed
   end
 
   def to_indexed_json
@@ -58,7 +58,7 @@ class Sheet < ActiveRecord::Base
       up_to_date:  self.up_to_date,
       level:       self.level,
       updated_at:  self.updated_at,
-      tag:         self.keywords.map(&:name)
+      tags:        self.keywords.map(&:name)
     }.to_json
   end
 
@@ -82,14 +82,8 @@ class Sheet < ActiveRecord::Base
     end
 
     # Tags
-    tag, most_used_keyword = params[:tag], params['most-used-keyword']
-
-    if tag.present? && most_used_keyword.present?
-      s.filter :and, {term: {tag: tag}}, {term: {tag: most_used_keyword}}
-    else
-      tag = tag.present? ? tag : most_used_keyword
-      s.filter :term, tag: tag if tag.present?
-    end
+    tags = Array(params[:tags]) + Array(params['most-used-keywords'])
+    s.filter :and, tags.map { |tag| {term: {tags: tag}} } if tags.present?
 
     # Date
     case params[:updated]
@@ -105,7 +99,7 @@ class Sheet < ActiveRecord::Base
 
     # Facets
     s.facet 'tags', global: true do
-      terms :tag, exclude: KeywordCategory.skills.keywords.map(&:name)
+      terms :tags, exclude: KeywordCategory.skills.keywords.map(&:name)
     end
 
     # Pagination

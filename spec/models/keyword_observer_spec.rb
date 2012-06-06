@@ -14,13 +14,13 @@ describe KeywordObserver do
     end
 
     it 'should reindex the sheets having the keyword we destroy' do
-      results = Sheet.search(tag: keyword.name).perform.results
+      results = Sheet.search(tags: [keyword.name]).perform.results
       results.size.should eq 1
 
       keyword.destroy
       sheet.reload
 
-      results = Sheet.search(tag: keyword.name).perform.results
+      results = Sheet.search(tags: [keyword.name]).perform.results
       results.size.should eq 0
     end
   end

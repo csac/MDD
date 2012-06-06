@@ -228,6 +228,18 @@ describe Sheet do
         results.first.id.should eq sheet2.id
       end
 
+      it 'should find 1 document via the tag filter' do
+        results = Sheet.search(tags: ['documentation']).perform.results
+        results.size.should eq 1
+        results.first.id.should eq sheet2.id
+      end
+
+      it 'should find 1 document via the tag filter' do
+        results = Sheet.search(tags: ['documentation', 'linux']).perform.results
+        results.size.should eq 1
+        results.first.id.should eq sheet2.id
+      end
+
       it 'should have tags facets' do
         facets = Sheet.search.perform.results.facets['tags']['terms']
         facets.size.should eq 2
