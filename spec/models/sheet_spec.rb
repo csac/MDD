@@ -198,6 +198,7 @@ describe Sheet do
 
     end
 
+    # TODO: add tests on tag and most-used-keyword filters.
     context 'with an index on keywords' do
 
       let!(:keyword1) { Fabricate(:keyword) }
