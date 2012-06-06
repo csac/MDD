@@ -202,14 +202,22 @@ describe Sheet do
     context 'with an index on keywords' do
 
       let!(:keyword1) { Fabricate(:keyword) }
-      let!(:sheet1)   { Fabricate(:sheet)   }
+      let!(:linux)    { Fabricate(:keyword, name: 'linux') }
+      let!(:doc)      { Fabricate(:keyword, name: 'documentation') }
+      let!(:sheet1) do
+        s = Fabricate(:sheet)
+        s.keywords << linux
+        s
+      end
       let!(:sheet2) do
         s = Fabricate(:sheet)
-        s.keywords << Fabricate(:keyword, name: 'documentation')
+        s.keywords << linux
+        s.keywords << doc
         s
       end
 
       before do
+        sheet1.save
         sheet2.save
         Sheet.refresh_index!
       end
@@ -222,10 +230,9 @@ describe Sheet do
 
       it 'should have tags facets' do
         facets = Sheet.search.perform.results.facets['tags']['terms']
-        facets.size.should eq 3
+        facets.size.should eq 2
 
-        facets.should include({'term' => sheet1.keywords.first.name, 'count' => 1})
-        facets.should include({'term' => sheet2.keywords.first.name, 'count' => 1})
+        facets.should include({'term' => 'linux', 'count' => 2})
         facets.should include({'term' => 'documentation', 'count' => 1})
       end
 
