@@ -11,6 +11,9 @@
     %h1.pull-left
       = resource.title
     .pull-right
+      - if last_search?
+        = link_to t('actions.search.prev'), sheet_path(previous_result), :class => 'btn' if previous_result
+        = link_to t('actions.search.next'), sheet_path(next_result), :class => 'btn' if next_result
       = link_to t('actions.sheets.edit'), edit_sheet_path(resource), :class => 'btn btn-primary'
       = link_to t('actions.sheets.delete'), sheet_path(resource), method: :delete, confirm: t('actions.confirm_delete'), :class => 'btn btn-danger btn-small'
     .metadata

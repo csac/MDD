@@ -106,6 +106,8 @@ class Sheet < ActiveRecord::Base
     s.from params[:page] ? (params[:page].to_i - 1) : 0
     s.size params[:per_page] || Kaminari.config.default_per_page
 
+    s.sort { by params[:sort_by] || :updated_at, :desc}
+
     s
   end
 
