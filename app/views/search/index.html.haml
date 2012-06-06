@@ -7,7 +7,7 @@
   %section.filters.row
     %dl.span2
       %dt= t('.filters.date.title')
-      %dd= link_to t('.filters.date.all'), request.query_parameters.merge(updated: ''), :class => is_active?('updated', 'all')
+      %dd= link_to t('.filters.date.all'), request.query_parameters.merge(updated: nil), :class => is_active?('updated', 'all')
       %dd= link_to t('.filters.date.today'), request.query_parameters.merge(updated: 'today'), :class => is_active?('updated', 'today')
       %dd= link_to t('.filters.date.yesterday'), request.query_parameters.merge(updated: 'yesterday'), :class => is_active?('updated', 'yesterday')
       %dd= link_to t('.filters.date.this_week'), request.query_parameters.merge(updated: 'this-week'), :class => is_active?('updated', 'this-week')
@@ -15,25 +15,25 @@
 
     %dl.span2
       %dt= t('.filters.keywords.title')
-      %dd= link_to t('.filters.keywords.all'), request.query_parameters.merge(tag: ''), :class => is_active?('tag', 'all')
+      %dd= link_to t('.filters.keywords.all'), request.query_parameters.merge(tag: nil), :class => is_active?('tag', 'all')
       - KeywordCategory.skills.keywords.sort_by(&:name).each do |keyword|
         %dd= link_to keyword.name, request.query_parameters.merge(tag: keyword.name), :class => is_active?('tag', keyword.name)
 
     %dl.span2
       %dt= t('.filters.most_used_keywords.title')
-      %dd= link_to t('.filters.most_used_keywords.all'), request.query_parameters.merge('most-used-keyword' => ''), :class => is_active?('most-used-keyword', 'all')
+      %dd= link_to t('.filters.most_used_keywords.all'), request.query_parameters.merge('most-used-keyword' => nil), :class => is_active?('most-used-keyword', 'all')
       - firsts(@sheets.facets['tags'], 10).each do |keyword|
         %dd= link_to "#{keyword['term']} (#{keyword['count']})", request.query_parameters.merge('most-used-keyword' => keyword['term']), :class => is_active?('most-used-keyword', keyword['term'])
 
     %dl.span2
       %dt= t('.filters.level.title')
-      %dd= link_to t('.filters.level.all'), request.query_parameters.merge(level: ''), :class => is_active?('level', 'all')
+      %dd= link_to t('.filters.level.all'), request.query_parameters.merge(level: nil), :class => is_active?('level', 'all')
       - (1..3).each do |level|
         %dd= link_to t(".filters.level.#{level}"), request.query_parameters.merge(level: level), :class => is_active?('level', level.to_s)
 
     %dl.span2
       %dt= t('.filters.up_to_date.title')
-      %dd= link_to t('.filters.up_to_date.all'), request.query_parameters.merge(up_to_date: ''), :class => is_active?('up_to_date', 'all')
+      %dd= link_to t('.filters.up_to_date.all'), request.query_parameters.merge(up_to_date: nil), :class => is_active?('up_to_date', 'all')
       %dd= link_to t('.filters.up_to_date.yes'), request.query_parameters.merge(up_to_date: true), :class => is_active?('up_to_date', 'true')
       %dd= link_to t('.filters.up_to_date.no'), request.query_parameters.merge(up_to_date: false), :class => is_active?('up_to_date', 'false')
 
