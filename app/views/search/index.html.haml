@@ -16,7 +16,7 @@
     %dl.span2
       %dt= t('.filters.keywords.title')
       %dd= link_to t('.filters.keywords.all'), request.query_parameters.merge('tags' => nil), :class => is_active?('tags', 'all')
-      - KeywordCategory.skills.keywords.sort_by(&:name).each do |keyword|
+      - skills_keywords_by_name.each do |keyword|
         - if is_active?('tags', keyword.name).present?
           %dd= link_to keyword.name, request.query_parameters.merge('tags' => params[:tags] - [keyword.name]), :class => 'active'
         - else
@@ -51,6 +51,5 @@
 
       = render partial: "shared/sheets", locals: {sheets: @sheets.to_a}
 
-    = paginate Kaminari.paginate_array(@sheets.to_a, total_count: @sheets.total).page(params[:page] || 1)
-
+    = paginate paginable_sheets(@sheets)
 

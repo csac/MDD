@@ -24,5 +24,13 @@ class SearchController < ApplicationController
   def firsts(facet, n)
     @terms ||= facet['terms'].sort_by{ |term| term['count'] }.reverse.slice(0..9)
   end
+
+  def skills_keywords_by_name
+    KeywordCategory.skills.keywords.sort_by(&:name)
+  end
+
+  def paginable_sheets(sheets)
+    Kaminari.paginate_array(sheets.to_a, total_count: sheets.total).page(params[:page] || 1)
+  end
 end
 
