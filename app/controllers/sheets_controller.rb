@@ -22,9 +22,11 @@ class SheetsController < InheritedResources::Base
   end
 
   def search_results(uri)
+    return @results if @results
+
     query  = URI(uri).query
     params = Rack::Utils.parse_nested_query(query)
-    Sheet.search(params).perform.results
+    @results = Sheet.search(params).perform.results
   end
 
   def previous_result

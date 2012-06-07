@@ -22,8 +22,7 @@ class SearchController < ApplicationController
   # Take a facet and returns the n elements of the list with the
   # higher count values.
   def firsts(facet, n)
-    terms = facet['terms'].sort_by{ |term| term['count'] }.reverse
-    terms.slice(0..9)
+    @terms ||= facet['terms'].sort_by{ |term| term['count'] }.reverse.slice(0..9)
   end
 end
 
