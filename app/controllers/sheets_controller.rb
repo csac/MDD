@@ -7,13 +7,21 @@ class SheetsController < InheritedResources::Base
   helper_method :search_results, :previous_result, :next_result
 
   def create
-    super
-    resource.histories << History.create(user: current_user, subject: resource, action: 'create')
+    create! do |success, error|
+      success.any do
+        resource.histories << History.create(user: current_user, subject: resource, action: 'create')
+        redirect_to sheet_path(resource)
+      end
+    end
   end
 
   def update
-    super
-    resource.histories << History.create(user: current_user, subject: resource, action: 'update')
+    update! do |success, error|
+      success.any do
+        resource.histories << History.create(user: current_user, subject: resource, action: 'update')
+        redirect_to sheet_path(resource)
+      end
+    end
   end
 
   def search_results(uri)
