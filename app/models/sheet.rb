@@ -30,14 +30,6 @@ class Sheet < ActiveRecord::Base
 
   attr_accessible :title, :description, :level, :up_to_date, :keyword_ids
 
-  def historize(user, action='create')
-    History.create(
-      subject: self,
-      action: action,
-      user: user
-    )
-  end
-
   # Search
 
   mapping do
