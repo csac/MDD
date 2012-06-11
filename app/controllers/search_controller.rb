@@ -3,7 +3,7 @@ class SearchController < ApplicationController
   before_filter :authenticate_user!
   respond_to :html
 
-  helper_method :is_active?, :firsts
+  helper_method :is_active?, :firsts, :skills_keywords_by_name, :paginable_sheets
 
   def index
     @sheets = Sheet.search(params).perform.results
