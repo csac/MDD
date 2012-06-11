@@ -1,6 +1,8 @@
 # encoding: utf-8
 class SearchController < ApplicationController
-  authorize_resource
+  before_filter :authenticate_user!
+  respond_to :html
+
   helper_method :is_active?, :firsts
 
   def index

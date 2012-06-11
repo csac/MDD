@@ -1,6 +1,9 @@
 # encoding: utf-8
 class SheetsController < InheritedResources::Base
+  before_filter :authenticate_user!
   authorize_resource
+  respond_to :html
+
   helper_method :search_results, :previous_result, :next_result
 
   def create
