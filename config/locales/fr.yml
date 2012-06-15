@@ -96,6 +96,9 @@ fr:
       new: 'Ajouter une fiche'
       edit: 'Editer'
       delete: 'Supprimer'
+    search:
+      prev: 'Précédente'
+      next: 'Suivante'
 
   # Menu and breadcrumb
   nav:
