@@ -6,6 +6,7 @@ class SearchController < ApplicationController
   helper_method :is_active?, :firsts, :skills_keywords_by_name, :paginable_sheets
 
   def index
+    session[:last_search] = params
     @sheets = Sheet.search(params).perform.results
   end
 

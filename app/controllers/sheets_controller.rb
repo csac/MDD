@@ -24,22 +24,21 @@ class SheetsController < InheritedResources::Base
     end
   end
 
-  def search_results(uri)
+  def search_results(params)
     return @results if @results
-
-    query  = URI(uri).query
-    params = Rack::Utils.parse_nested_query(query)
     @results = Sheet.search(params).perform.results
   end
 
   def previous_result
-    results = search_results(request.env['HTTP_REFERER']).to_a
+    params  = session[:last_search] || {}
+    results = search_results(params).to_a
     i = results.index(resource)
     i >= 1 ? results[i - 1] : nil
   end
 
   def next_result
-    results = search_results(request.env['HTTP_REFERER']).to_a
+    params  = session[:last_search] || {}
+    results = search_results(params).to_a
     i = results.index(resource)
     i < (results.size - 1) ? results[i + 1] : nil
   end

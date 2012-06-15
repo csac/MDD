@@ -1,10 +1,7 @@
 module SheetHelper
 
-  def last_search?(referer=request.env['HTTP_REFERER'])
-    if referer.present?
-      uri = URI(referer)
-      uri.path == '/search'
-    end
+  def last_search?
+    !session[:last_search].nil?
   end
 
 end

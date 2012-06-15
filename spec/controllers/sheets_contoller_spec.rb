@@ -60,12 +60,11 @@ describe SheetsController, search: true do
       sheet3.save
       Sheet.refresh_index!
 
-      @search_uri = "http://#{request.host}/search?query=''"
-      request.env['HTTP_REFERER'] = @search_uri
+      session[:last_search] = {query: ''}
     end
 
     it 'should return results of the last search' do
-      last_search_results = controller.search_results(@search_uri).to_a
+      last_search_results = controller.search_results({}).to_a
       search_results      = Sheet.search.perform.results.to_a
 
       last_search_results.should eq search_results
