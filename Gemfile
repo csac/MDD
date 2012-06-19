@@ -16,8 +16,6 @@ gem 'haml-rails', '~>0.3.4'
 gem 'kaminari', '~>0.13.0'
 gem 'yajl-ruby', '~>1.1.0'
 gem 'inherited_resources', '~>1.3.1'
-gem 'bootstrap-sass', '~>2.0.2'
-gem 'bootswatch-rails', '~>0.0.11'
 gem 'simple_form', '~>2.0.1'
 gem 'devise', '~>2.0.4'
 gem 'cancan', '~>1.6.7'
@@ -39,6 +37,8 @@ group :assets do
 
   gem 'uglifier',     '>= 1.0.3'
   gem 'therubyracer', '~>0.9.10'  # Coffescript compilation
+  gem 'bootstrap-sass', '~>2.0.2'
+  gem 'bootswatch-rails', '~>0.0.11', :git => "git://github.com/maxim/bootswatch-rails.git"
 end
 
 group :test do

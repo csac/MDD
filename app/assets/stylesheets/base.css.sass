@@ -1,3 +1,27 @@
+//Header
+header.navbar
+  position: fixed
+  width: 100%
+  z-index: 10
+
+aside
+  position: fixed
+  top: 59px
+  left: 20px
+  width: 300px
+  height: 500px
+  background-color: grey
+
+//Container
+section.container
+  position: relative
+  padding: 59px 0 0 330px
+
+
+
+
+//KIKI styles
+
 .keyword-categories,
 .keyword-category,
 .keywords,
@@ -31,3 +55,11 @@
     &.active
       font-weight: bold
 
+@media (min-width: 970px)
+  section.container
+    width: auto
+    margin: 0 20px
+
+@media (max-width: 970px)
+  section.container
+    width: 584px
