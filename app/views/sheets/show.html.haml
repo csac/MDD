@@ -29,11 +29,11 @@
     %p
       %span.badge= resource.level
     %p.last-modified
-      = t(".histories.last_modified", time: resource.updated_at)
+      = t(".histories.last_modified", time: l(resource.updated_at, format: :short))
     %ul.unstyled
       - resource.histories.each do |history|
         %li
-          = t(".histories.#{history.action}", user: history.user.name, time: history.created_at)
+          = t(".histories.#{history.action}", user: history.user.name, time: l(history.created_at, format: :short))
 
 %article.sheet
 
@@ -47,5 +47,5 @@
         - resource.histories.each do |history|
           %tr
             %td
-              = t(".histories.#{history.action}", user: history.user.name, time: history.created_at)
+              = t(".histories.#{history.action}", user: history.user.name, time: l(history.created_at, format: :short))
 

@@ -45,7 +45,11 @@ class User < ActiveRecord::Base
   has_many :histories, dependent: :destroy, as: :subject
 
   def name
-    "#{firstname} #{lastname} <#{email}>"
+    if firstname && lastname
+      "#{firstname} #{lastname}"
+    else
+      email.split('@').first
+    end
   end
 
   def administrator?

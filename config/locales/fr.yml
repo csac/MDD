@@ -38,8 +38,8 @@ fr:
       history: 'Historique'
       histories:
         last_modified: 'Dernière modification le %{time}'
-        update: '%{user} à modifié cette fiche le %{time}'
-        create: '%{user} à créé cette fiche le %{time}'
+        update: '%{user} a modifié cette fiche le %{time}'
+        create: '%{user} a créé cette fiche le %{time}'
     new:
       title: 'Ajouter une fiche'
     edit:
@@ -123,6 +123,10 @@ fr:
     pagination:
       previous: 'Précédent'
       next: 'Suivant'
+
+  time:
+    formats:
+      short: '%d/%m/%Y'
 
   errors:
     one_skill_keyword: 'Merci de sélectionner au moins un mot clé dans la catégorie "Pôles de compétence"'
