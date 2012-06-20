@@ -13,10 +13,6 @@
     .navbar-inner
       .container
         = link_to t('nav.home'), root_path, class: "brand"
-        %ul.nav
-          %li= link_to t('nav.sheets.index'), sheets_path
-          - if user_signed_in? && current_user.has_role?(:administrator)
-            %li= link_to t('nav.keywords.index'), keywords_path
         %form.navbar-search.pull-left{method: 'GET', action: '/search'}
           %input.search-query.span2{name: 'query', value: params[:query]}
         %ul.nav.pull-right
@@ -25,7 +21,6 @@
           - else
             %li= link_to t('nav.sign_in'), new_user_session_path
 
-  %aside
   %section.container
     = render :partial => 'shared/notifications'
     = yield

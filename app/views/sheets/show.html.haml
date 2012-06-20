@@ -1,35 +1,47 @@
-%article.sheet
+%header.navbar-inner
+  %h1.pull-left
+    = resource.title
+  .pull-right
+    - if last_search?
+      - if previous_result
+        =link_to sheet_path(previous_result), :class => 'btn' do
+          %i.icon-arrow-left
+          =t('actions.search.prev')
+      - if next_result
+        =link_to sheet_path(next_result), :class => 'btn' do
+          %i.icon-arrow-right
+          =t('actions.search.next')
 
-  %ul.breadcrumb.row
-    %li
-      = link_to t('nav.sheets.index'), sheets_path
-      %span.divider /
-    %li.active
-      = resource.title
-
-  %header.page-header.row
-    %h1.pull-left
-      = resource.title
-    .pull-right
-      - if last_search?
-        = link_to t('actions.search.prev'), sheet_path(previous_result), :class => 'btn' if previous_result
-        = link_to t('actions.search.next'), sheet_path(next_result), :class => 'btn' if next_result
-      = link_to edit_sheet_path(resource), :class => 'btn btn-primary' do
-        %i.icon-search
-        = t('actions.sheets.edit')
-      = link_to t('actions.sheets.delete'), sheet_path(resource), method: :delete, confirm: t('actions.confirm_delete'), :class => 'btn btn-danger btn-small'
-    .metadata
-      %span.last-modified
-        = t(".histories.last_modified", time: resource.updated_at)
+%aside{ :class => "level_#{resource.level}" }
+  %p.picture
+    =image_tag("defaut.jpeg")
+  .actions
+    = link_to edit_sheet_path(resource), :class => 'btn btn-info' do
+      %i.icon-pencil.icon-white
+      = t('actions.sheets.edit')
+    = link_to sheet_path(resource), method: :delete, confirm: t('actions.confirm_delete'), :class => 'btn btn-info' do
+      %i.icon-trash.icon-white
+      =t('actions.sheets.delete')
+  .metadata
+    - resource.keywords.each do |keyword|
+      %span.label.label-info= keyword.name
+  .history
+    %p
       %span.badge= resource.level
-      - resource.keywords.each do |keyword|
-        %span.label.label-info= keyword.name
+    %p.last-modified
+      = t(".histories.last_modified", time: resource.updated_at)
+    %ul.unstyled
+      - resource.histories.each do |history|
+        %li
+          = t(".histories.#{history.action}", user: history.user.name, time: history.created_at)
+
+%article.sheet
 
   %article
     %section.description
       = raw(resource.description)
 
-    %section.history.row
+    %section.history
       %h1= t(".history")
       %table.table.table-bordered.table-striped
         - resource.histories.each do |history|

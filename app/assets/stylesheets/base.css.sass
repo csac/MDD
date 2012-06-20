@@ -1,21 +1,49 @@
 //Header
+$header1: 40px
+$header2: 40px
+$fixedElements: $header1 + $header2 + 1px
+
 header.navbar
   position: fixed
   width: 100%
+  height: $header1
   z-index: 10
-
-aside
-  position: fixed
-  top: 59px
-  left: 20px
-  width: 300px
-  height: 500px
-  background-color: grey
 
 //Container
 section.container
   position: relative
-  padding: 59px 0 0 330px
+  padding: #{$fixedElements + 10px} 0 0 334px
+
+  > header
+    position: fixed
+    top: 41px
+    right: 0
+    left: 0
+    height: $header2
+    background-color: white
+    z-index: 5
+    .pull-right
+      margin-top: 5px
+
+  aside
+    position: fixed
+    top: $fixedElements + 1px
+    bottom: 0
+    left: 20px
+    width: 300px
+    padding: 18px 0
+    &.level_1
+      border-right: 4px solid green
+
+    > p, > div
+      padding-bottom: 10px
+      margin-bottom: 10px
+      border-bottom: 1px solid #eee
+
+    p.picture
+      text-align: center
+
+
 
 
 
