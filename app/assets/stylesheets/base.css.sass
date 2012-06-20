@@ -8,6 +8,7 @@ $fixedElements: $header1 + $header2 + 1px
 header.navbar
   position: fixed
   width: 100%
+  min-width: 914px
   height: $header1
   z-index: 10
   .input-prepend
@@ -18,19 +19,21 @@ header.navbar
 //Container
 section.container
   position: relative
-  padding: #{$fixedElements + 10px} 0 0 334px
-
+  padding: #{$header1} 0 0 0
   > header
     position: fixed
     top: 41px
     right: 0
     left: 0
+    min-width: 874px
     height: $header2
     background-color: white
     z-index: 5
     h1
+      padding-left: 15px
       font-size: 25px
-    .pull-right
+    p.pull-left,
+    div.pull-right
       margin-top: 5px
 
   aside
@@ -41,6 +44,7 @@ section.container
     width: 300px
     padding: 18px 0
     overflow: auto
+    background-color: white
     &.level_1
       border-right: 4px solid #a2e0cc
     &.level_2
@@ -55,6 +59,27 @@ section.container
 
     p.picture
       text-align: center
+    .history
+      ul
+        li
+          color: grey
+          &:first-letter
+            text-transform: capitalize
+          &:first-child
+            color: black
+  article
+    &.sheet:not(.new)
+      margin: #{$fixedElements - 20px} 0 0 334px
+      blockquote
+        margin: 30px
+        p
+          color: grey
+          font:
+            weight: normal
+            style: italic
+            size: 13px
+      img
+        margin: 20px 0
 
 //KIKI styles
 
@@ -101,5 +126,5 @@ section.container
 
 @media (max-width: 970px)
   section.container
-    width: 584px
+    width: 914px
 

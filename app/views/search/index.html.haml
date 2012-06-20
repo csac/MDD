@@ -1,10 +1,6 @@
 %article.search
 
-  %header.page-header.row
-    %h1.pull-left= t('.title', count: @sheets.total_count, query: params[:query])
-    = link_to t('actions.sheets.new'), new_sheet_path, :class => 'btn btn-primary pull-right'
-
-  %section.filters.row
+  %section.filters
     %dl.span2
       %dt= t('.filters.date.title')
       %dd= link_to t('.filters.date.all'), request.query_parameters.merge(updated: nil), :class => is_active?('updated', 'all')
@@ -43,7 +39,7 @@
       %dd= link_to t('.filters.up_to_date.yes'), request.query_parameters.merge(up_to_date: true), :class => is_active?('up_to_date', 'true')
       %dd= link_to t('.filters.up_to_date.no'), request.query_parameters.merge(up_to_date: false), :class => is_active?('up_to_date', 'false')
 
-  %section.row
+  %section
     %table.table.table-bordered.table-striped
       %tr
         %th= t('.keywords')

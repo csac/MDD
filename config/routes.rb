@@ -4,7 +4,7 @@ Mdd::Application.routes.draw do
 
   devise_for :users
 
-  root :to => 'sheets#index'
+  root :to => 'search#index'
 
   resources :keyword_categories
   resources :keywords

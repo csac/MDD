@@ -1,4 +1,7 @@
 %header.navbar-inner
+  %p.pull-left
+    = link_to search_index_url, :class => 'btn', :title => 'Retour' do
+      %i.icon-chevron-left
   %h1.pull-left
     = resource.title
   .pull-right
@@ -16,7 +19,7 @@
   %p.picture
     =image_tag("defaut.jpeg")
   .actions
-    = link_to edit_sheet_path(resource), :class => 'btn btn-info' do
+    = link_to edit_sheet_path(resource), :class => 'btn btn-primary' do
       %i.icon-pencil.icon-white
       = t('actions.sheets.edit')
     = link_to sheet_path(resource), method: :delete, confirm: t('actions.confirm_delete'), :class => 'btn' do
@@ -24,7 +27,7 @@
       =t('actions.sheets.delete')
   .metadata
     - resource.keywords.each do |keyword|
-      %span.label.label-info= keyword.name
+      %span.badge= keyword.name
   .history
     %ul.unstyled
       - resource.histories.each do |history|
@@ -36,12 +39,4 @@
   %article
     %section.description
       = raw(resource.description)
-
-    %section.history
-      %h1= t(".history")
-      %table.table.table-bordered.table-striped
-        - resource.histories.each do |history|
-          %tr
-            %td
-              = t(".histories.#{history.action}", user: history.user.name, time: l(history.created_at, format: :short))
 
