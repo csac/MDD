@@ -1,0 +1,58 @@
+table
+  width: 100%
+  margin-bottom: 11px
+  background-color: transparent
+  border-collapse: separate
+  border-spacing: 0
+  border: 1px solid #ddd
+    left: 0
+  +border-radius(3px)
+
+  thead:first-child tr:first-child th:first-child,
+  tbody:first-child tr:first-child td:first-child
+    +border-radius(3px 0 0 0)
+
+  thead:first-child tr:first-child th:last-child,
+  tbody:first-child tr:first-child td:last-child
+    +border-radius(0 3px 0 0)
+
+  thead:last-child tr:last-child th:first-child,
+  tbody:last-child tr:last-child td:first-child
+    +border-radius(0 0 0 3px)
+
+  thead:last-child tr:last-child th:last-child,
+  tbody:last-child tr:last-child td:last-child
+    +border-radius(0 0 3px 0)
+
+  // Cells
+  th, td
+    padding: 8px
+    line-height: 11px
+    text-align: left
+    vertical-align: top
+    border: 0
+      top: 1px solid #ddd
+      left: 1px solid #ddd
+
+  th
+    font-weight: bold
+  // Bottom align for column headings
+  thead th
+    vertical-align: bottom
+
+  // Remove top border from thead by default
+  caption + thead tr:first-child th, caption + thead tr:first-child td,
+  colgroup + thead tr:first-child th, colgroup + thead tr:first-child td,
+  thead:first-child tr:first-child th, thead:first-child tr:first-child td
+    border-top: 0
+  // Account for multiple tbody instances
+  tbody + tbody
+    border-top: 2px solid #eee
+  tbody
+    tr:nth-child(odd) td,
+    tr:nth-child(odd) th
+      background-color: #f9f9f9
+    tr:hover
+      td, th
+        background-color: whiteSmoke
+

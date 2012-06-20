@@ -19,17 +19,13 @@
     = link_to edit_sheet_path(resource), :class => 'btn btn-info' do
       %i.icon-pencil.icon-white
       = t('actions.sheets.edit')
-    = link_to sheet_path(resource), method: :delete, confirm: t('actions.confirm_delete'), :class => 'btn btn-info' do
-      %i.icon-trash.icon-white
+    = link_to sheet_path(resource), method: :delete, confirm: t('actions.confirm_delete'), :class => 'btn' do
+      %i.icon-trash
       =t('actions.sheets.delete')
   .metadata
     - resource.keywords.each do |keyword|
       %span.label.label-info= keyword.name
   .history
-    %p
-      %span.badge= resource.level
-    %p.last-modified
-      = t(".histories.last_modified", time: l(resource.updated_at, format: :short))
     %ul.unstyled
       - resource.histories.each do |history|
         %li

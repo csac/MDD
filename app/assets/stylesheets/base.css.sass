@@ -1,3 +1,5 @@
+@import tables
+
 //Header
 $header1: 40px
 $header2: 40px
@@ -8,6 +10,10 @@ header.navbar
   width: 100%
   height: $header1
   z-index: 10
+  .input-prepend
+    letter-spacing: -4px
+    input
+      letter-spacing: normal
 
 //Container
 section.container
@@ -22,6 +28,8 @@ section.container
     height: $header2
     background-color: white
     z-index: 5
+    h1
+      font-size: 25px
     .pull-right
       margin-top: 5px
 
@@ -32,21 +40,21 @@ section.container
     left: 20px
     width: 300px
     padding: 18px 0
+    overflow: auto
     &.level_1
-      border-right: 4px solid green
+      border-right: 4px solid #a2e0cc
+    &.level_2
+      border-right: 4px solid #69aeff
+    &.level_3
+      border-right: 4px solid #f2d717
 
     > p, > div
-      padding-bottom: 10px
-      margin-bottom: 10px
+      padding-bottom: 20px
+      margin-bottom: 20px
       border-bottom: 1px solid #eee
 
     p.picture
       text-align: center
-
-
-
-
-
 
 //KIKI styles
 
@@ -83,6 +91,9 @@ section.container
     &.active
       font-weight: bold
 
+
+//Size Behaviour
+
 @media (min-width: 970px)
   section.container
     width: auto
@@ -91,3 +102,4 @@ section.container
 @media (max-width: 970px)
   section.container
     width: 584px
+
