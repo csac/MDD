@@ -27,7 +27,7 @@
       %span.badge= keyword.name
   .history
     %ul.unstyled
-      - resource.histories.reverse.each do |history|
+      - resource.histories.last(10).reverse.each do |history|
         %li
           = t(".histories.#{history.action}", user: history.user.name, time: l(history.created_at, format: :short))
 
