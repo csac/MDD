@@ -11,10 +11,20 @@ header.navbar
   min-width: 914px
   height: $header1
   z-index: 10
+  > .navbar-inner
+    background:
+      color: black
+      image: none
+    +border-radius(0)
   .input-prepend
     letter-spacing: -4px
     input
       letter-spacing: normal
+  .container
+    ul.nav
+      > li > a
+        color: #eee
+        +text-shadow(rgba(0,0,0,0.5) 0 1px 0)
 
 //Container
 section.container
@@ -27,8 +37,11 @@ section.container
     left: 0
     min-width: 874px
     height: $header2
-    background-color: white
+    background:
+      image: none
+      color: #efefef
     z-index: 5
+    +border-radius(0)
     h1
       padding-left: 15px
       font-size: 25px
@@ -41,8 +54,8 @@ section.container
     top: $fixedElements + 1px
     bottom: 0
     left: 20px
-    width: 300px
-    padding: 18px 0
+    width: 280px
+    padding: 18px 20px 18px 0
     overflow: auto
     background-color: white
     &.level_1
@@ -58,18 +71,22 @@ section.container
       border-bottom: 1px solid #eee
 
     p.picture
-      text-align: center
     .history
       ul
+        margin-bottom: 0
         li
           color: grey
+          font-size: 11px
+          line-height: 16px
           &:first-letter
             text-transform: capitalize
           &:first-child
             color: black
   article
     &.sheet:not(.new)
-      margin: #{$fixedElements - 20px} 0 0 334px
+      position: relative
+      padding-top: 19px
+      margin: #{$fixedElements - 38px} 0 0 324px
       blockquote
         margin: 30px
         p
@@ -80,6 +97,17 @@ section.container
             size: 13px
       img
         margin: 20px 0
+      .actions
+        position: fixed
+        top: $fixedElements
+        right: 20px
+        padding: 5px
+        background-color: #efefef
+        +border-radius(0 0 3px 3px)
+        +box-shadow(rgba(0,0,0,0.25) 0 1px 3px)
+        .btn-primary
+          margin-right: 4px
+
 
 //KIKI styles
 

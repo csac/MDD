@@ -18,7 +18,6 @@
             %input.span2{name: 'query', value: params[:query], type: 'text'}
         = link_to new_sheet_path, :class => 'btn btn-primary' do
           %i.icon-plus.icon-white
-          =t('actions.sheets.new')
         %ul.nav.pull-right
           - if user_signed_in?
             %li= link_to t('nav.sign_out'), destroy_user_session_path, method: :delete

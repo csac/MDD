@@ -39,6 +39,8 @@ group :assets do
   gem 'therubyracer', '~>0.9.10'  # Coffescript compilation
   gem 'bootstrap-sass', '~>2.0.2'
   gem 'bootswatch-rails', '~>0.0.11', :git => "git://github.com/maxim/bootswatch-rails.git"
+  gem 'compass',        '=0.12.rc.1'
+  gem 'compass-rails',  '=1.0.0.rc.3'
 end
 
 group :test do

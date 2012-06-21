@@ -1,3 +1,3 @@
-$(document).ready ->
-    $('.markitup').markItUp mySettings
+#$(document).ready ->
+#$('.markitup').markItUp mySettings
 
