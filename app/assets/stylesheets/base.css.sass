@@ -8,7 +8,6 @@ $fixedElements: $header1 + $header2 + 1px
 header.navbar
   position: fixed
   width: 100%
-  min-width: 914px
   height: $header1
   z-index: 10
   > .navbar-inner
@@ -17,8 +16,9 @@ header.navbar
       image: none
     +border-radius(0)
   .input-prepend
-    letter-spacing: -4px
+    letter-spacing: -3px
     input
+      width: 170px
       letter-spacing: normal
   .container
     ul.nav
@@ -30,12 +30,12 @@ header.navbar
 section.container
   position: relative
   padding: #{$header1} 0 0 0
+  margin: 0 20px
   > header
     position: fixed
     top: 41px
     right: 0
     left: 0
-    min-width: 874px
     height: $header2
     background:
       image: none
@@ -55,7 +55,7 @@ section.container
     bottom: 0
     left: 20px
     width: 280px
-    padding: 18px 20px 18px 0
+    padding: 20px 20px 20px 0
     overflow: auto
     background-color: white
     &.level_1
@@ -87,6 +87,7 @@ section.container
       position: relative
       padding-top: 19px
       margin: #{$fixedElements - 38px} 0 0 324px
+      overflow: auto
       blockquote
         margin: 30px
         p
@@ -147,12 +148,45 @@ section.container
 
 //Size Behaviour
 
-@media (min-width: 970px)
+@media (min-width: 900px)
   section.container
     width: auto
-    margin: 0 20px
 
-@media (max-width: 970px)
+@media (max-width: 900px)
+  body
+    padding: 0
   section.container
-    width: 914px
+    aside
+      position: static
+      width: 100%
+      width: 860px
+      height: 151px
+      margin-top: $header2 + 1px
+      padding: 20px 0
+      &.level_1
+        border:
+          right: 0
+          bottom: 4px solid #a2e0cc
+      &.level_2
+        border:
+          right: 0
+          bottom: 4px solid #69aeff
+      &.level_3
+        border:
+          right: 0
+          bottom: 4px solid #f2d717
+      p, div
+        float: left
+        width: 31%
+        padding: 0 10px 0 0
+        margin: 0 10px 0 0
+        border:
+          bottom: 0
+          right: 1px solid #eee
+        &.history
+          border: 0
+    article
+      width: 860px
+      &.sheet:not(.new)
+        margin: 0
 
