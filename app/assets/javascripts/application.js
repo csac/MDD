@@ -13,8 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap/bootstrap-button
-//= require ckeditor/basepath
-//= require ckeditor/ckeditor
+//= require ckeditor/init
 //= require_tree .
 
 //= require boot
