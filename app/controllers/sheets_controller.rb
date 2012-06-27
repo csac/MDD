@@ -34,14 +34,14 @@ class SheetsController < InheritedResources::Base
     params  = session[:last_search] || {}
     results = search_results(params).to_a
     i = results.index(resource)
-    i >= 1 ? results[i - 1] : nil
+    (i && i >= 1) ? results[i - 1] : nil
   end
 
   def next_result
     params  = session[:last_search] || {}
     results = search_results(params).to_a
     i = results.index(resource)
-    i < (results.size - 1) ? results[i + 1] : nil
+    (i && i < (results.size - 1)) ? results[i + 1] : nil
   end
 
   protected
