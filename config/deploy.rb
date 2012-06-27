@@ -11,10 +11,12 @@ set :repository, "git@github.com:AF83/MDD.git"
 # Use the capistrano rules for precompiling assets with the Rails assets
 # pipeline on deploys.
 set :public_children, %w(images)
+# OR you can choose our improved version of this task:
+#load "af83/deploy/assets"
 
 load "af83/thin"
 load "af83/database"
-#load "deploy/assets"
+load "deploy/assets"
 
 # TODO uncomment the extensions you want to use
 # load "af83/custom_maintenance_page"
