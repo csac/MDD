@@ -26,6 +26,7 @@ class SheetsController < InheritedResources::Base
 
   def search_results(params)
     return @results if @results
+    params[:pagination] = false
     @results = Sheet.search(params).perform.results
   end
 
