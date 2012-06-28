@@ -2,14 +2,10 @@
 
   %ul.breadcrumb
     %li
-      = link_to t('nav.sheets.index'), sheets_path
+      = link_to t('nav.sheets.index'), search_index_url
       %span.divider /
     %li.active
       = t('nav.sheets.new')
-
-  %header.page-header
-    %h1.pull-left
-      = t('.title')
 
   = render :partial => 'form'
 

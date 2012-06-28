@@ -31,6 +31,9 @@ CKEDITOR.editorConfig = function( config )
   // The location of a script that handles file uploads.
   config.filebrowserUploadUrl = "/ckeditor/attachment_files";
 
+  // The height of the editing area.
+  config.height = 450
+
   // Rails CSRF token
   config.filebrowserParams = function(){
     var csrf_token = jQuery('meta[name=csrf-token]').attr('content'),
