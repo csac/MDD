@@ -1,6 +1,6 @@
 %article.search
 
-  %section.filters
+  %section.filters.clearfix
     %dl.span2
       %dt= t('.filters.date.title')
       %dd= link_to t('.filters.date.all'), request.query_parameters.merge(updated: nil), :class => is_active?('updated', 'all')
