@@ -92,3 +92,11 @@ bundle exec rake db:test:prepare
 ``` bash
 bundle exec rspec
 ```
+
+License
+-------
+
+MDD is released under the MIT license:
+
+  * www.opensource.org/licenses/MIT
+
