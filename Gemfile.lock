@@ -1,15 +1,15 @@
 GIT
-  remote: git://github.com/ctran/annotate_models.git
+  remote: http://github.com/ctran/annotate_models.git
   revision: bef0c494956e516540b7a9e72fa03be6576031dd
   specs:
     annotate (2.5.0.pre1)
       rake
 
 GIT
-  remote: git://github.com/maxim/bootswatch-rails.git
-  revision: b6bc761a5e43607f74536e8f6352d23e55e89c06
+  remote: http://github.com/maxim/bootswatch-rails.git
+  revision: 3142ae2174dee9950914fd6b576dffa705826a58
   specs:
-    bootswatch-rails (0.0.11)
+    bootswatch-rails (0.0.12)
       railties (>= 3.1)
 
 GEM
@@ -43,12 +43,12 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     addressable (2.2.8)
-    ansi (1.4.2)
+    ansi (1.4.3)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
-    bootstrap-sass (2.0.3.1)
+    bootstrap-sass (2.0.4.0)
     builder (3.0.0)
-    cancan (1.6.7)
+    cancan (1.6.8)
     capistrano (2.12.0)
       highline
       net-scp (>= 1.0.0)
@@ -136,7 +136,7 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mime-types (1.18)
+    mime-types (1.19)
     mini_magick (3.4)
       subexec (~> 0.2.1)
     mo (0.0.3)
@@ -198,7 +198,7 @@ GEM
       railties (>= 3.0)
       rspec (~> 2.8.0)
     ruby-progressbar (0.0.10)
-    sass (3.1.19)
+    sass (3.1.20)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
@@ -234,7 +234,7 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
-    turn (0.9.5)
+    turn (0.9.6)
       ansi
     tzinfo (0.3.33)
     uglifier (1.2.4)
