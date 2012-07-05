@@ -47,10 +47,16 @@ local   all             all                                     trust
 bundle install
 ```
 
-* Copy `database.yml.sample` file:
+* Copy and configure `database.yml.sample` file:
 
 ```
 cp config/database.yml.sample config/database.yml
+```
+
+* Copy and configure `tire.yml.sample` file:
+
+```
+cp config/gaston/tire.yml.sample config/gaston/tire.yml
 ```
 
 * Create the database and run migrations:
