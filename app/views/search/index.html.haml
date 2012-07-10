@@ -41,17 +41,13 @@
 
   %section
     %table.table
-      / table.table.table-bordered.table-striped
       %thead
         %tr
           %th= t('.keywords')
           %th= t('.sheet')
-      %tbody
-        %tr
-          / %td= t('.keywords')
-          / %td= t('.sheet')
 
-      = render partial: "shared/sheets", locals: {sheets: @sheets.to_a}
+      %tbody
+        = render partial: "shared/sheets", locals: {sheets: @sheets.to_a}
 
     = paginate @sheets
 
