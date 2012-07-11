@@ -40,19 +40,16 @@
       %dd= link_to t('.filters.up_to_date.no'), request.query_parameters.merge(up_to_date: false), :class => is_active?('up_to_date', 'false')
 
   %section
+    %div.results
+      %span.nbr= @sheets.length
+      = t('.sheet').pluralize(@sheets.length)
     %table.table
       %colgroup
         %col{:width => "25%" }
         %col{:width => "15px" }
         %col
-      %thead
-        %tr
-          %th= t('.keywords')
-          %th
-          %th= t('.sheet')
 
       %tbody
         = render partial: "shared/sheets", locals: {sheets: @sheets.to_a}
 
     = paginate @sheets
-
