@@ -1,7 +1,9 @@
 - sheets.each do |sheet|
   %tr
-    %td
+    %td.meta
       - sheet.keywords.each do |keyword|
         %span.label.label-info= keyword.name
+    %td.level
+      %div{ :class => "level#{sheet.level}" } 
     %td= link_to sheet.title, sheet_path(sheet)
 

@@ -4,6 +4,8 @@
       %header.pastelBlock
         %h2= t('devise.shared.sign_in')
       %div.pastelBlock
+        = link_to "Cerbere CAS", "/users/auth/cas"
+      %div.pastelBlock
         = devise_error_messages!
         %p
           = f.label :email, t('devise.shared.email')

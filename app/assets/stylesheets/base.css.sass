@@ -129,9 +129,39 @@ section.container
 
 .sheets,
 .search
+  table
+    height: 100%
   tr
-    th:first-child
-      width: 25%
+    height: 100%
+    td.meta
+      text-align: right
+  tr:last-child
+    td
+      border-bottom: 1px solid #DDD
+
+  td.level
+    text-align: center
+    vertical-align: middle
+    padding: 0 5px
+    height: 100%
+    div
+      display: inline-block
+      white-space: nowrap
+      overflow: hidden
+      vertical-align: middle
+      height: 100% 
+      width: 5px
+      margin: 0
+
+  .level1
+    background-color: #EEEEFF
+
+  .level2
+    background-color: #CEA8F4
+
+  .level3
+    background-color: #9669FE
+
 
 .sheet
   .metadata

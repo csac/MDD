@@ -1,4 +1,19 @@
 # encoding: utf-8
+
+require 'omniauth/patches'
+require 'omniauth/dynamic_full_host'
+
+# a setup app that handles dynamic config of CAS server
+setup_app = Proc.new do |env|
+  cas_server = URI.parse("https://authentification-cerbere.application.i2/cas")
+  if cas_server
+    env['omniauth.strategy'].options.merge! host: cas_server.host,
+                                            port: cas_server.port,
+                                            path: (cas_server.path != "/" ? cas_server.path : nil),
+                                            ssl: cas_server.scheme == "https"
+  end
+end
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -212,6 +227,13 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+  config.omniauth :cas, host: "localhost",
+                        port: "9292",
+                        ssl: false,
+                        setup: setup_app
+
+
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

@@ -112,6 +112,7 @@ GEM
       haml (~> 3.0)
       railties (~> 3.0)
     has_scope (0.5.1)
+    hashie (1.2.0)
     highline (1.6.13)
     hike (1.2.1)
     i18n (0.6.0)
@@ -148,6 +149,14 @@ GEM
     net-ssh (2.5.2)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
+    nokogiri (1.5.5)
+    omniauth (1.1.0)
+      hashie (~> 1.2)
+      rack
+    omniauth-cas (0.0.7)
+      addressable (~> 2.2)
+      nokogiri (~> 1.5)
+      omniauth (~> 1.1.0)
     orm_adapter (0.0.7)
     pg (0.13.2)
     polyglot (0.3.3)
@@ -272,6 +281,8 @@ DEPENDENCIES
   letter_opener (~> 0.0.2)
   mini_magick
   mo (~> 0.0.3)
+  omniauth
+  omniauth-cas
   pg (~> 0.13.2)
   quiet_assets
   rails (= 3.2.3)
