@@ -4,6 +4,9 @@
 $header1: 40px
 $header2: 40px
 $fixedElements: $header1 + $header2 + 1px
+$level1: #EEEEFF
+$level2: #CEA8F4
+$level3: #9669FE
 
 header.navbar
   position: fixed
@@ -65,11 +68,11 @@ section.container
     overflow: auto
     background-color: white
     &.level_1
-      border-right: 4px solid #a2e0cc
+      border-right: 4px solid #{$level1} // #a2e0cc
     &.level_2
-      border-right: 4px solid #69aeff
+      border-right: 4px solid #{$level2} // #69aeff
     &.level_3
-      border-right: 4px solid #f2d717
+      border-right: 4px solid #{$level3} // #f2d717
 
     > p, > div
       padding-bottom: 20px
@@ -154,13 +157,13 @@ section.container
       margin: 0
 
   .level1
-    background-color: #EEEEFF
+    background-color: #{$level1}
 
   .level2
-    background-color: #CEA8F4
+    background-color: #{$level2}
 
   .level3
-    background-color: #9669FE
+    background-color: #{$level3}
 
 
 .sheet
