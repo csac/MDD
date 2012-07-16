@@ -96,8 +96,11 @@ class Sheet < ActiveRecord::Base
 
     # Pagination
     if params[:pagination] != false
-      s.from params[:page] ? (params[:page].to_i - 1) : 0
-      s.size params[:per_page] || Kaminari.config.default_per_page
+      page     = params[:page] ? (params[:page].to_i - 1) : 0
+      per_page = params[:per_page] || Kaminari.config.default_per_page
+
+      s.from page * per_page
+      s.size per_page
     end
 
     s.sort { by params[:sort_by] || :updated_at, :desc}

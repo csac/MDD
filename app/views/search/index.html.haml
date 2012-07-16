@@ -47,5 +47,5 @@
 
       = render partial: "shared/sheets", locals: {sheets: @sheets.to_a}
 
-    = paginate paginable_sheets(@sheets)
+    = paginate @sheets
 

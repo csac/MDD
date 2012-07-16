@@ -31,9 +31,5 @@ class SearchController < ApplicationController
   def skills_keywords_by_name
     KeywordCategory.skills.keywords.sort_by(&:name)
   end
-
-  def paginable_sheets(sheets)
-    Kaminari.paginate_array(sheets.to_a, total_count: sheets.total).page(params[:page] || 1)
-  end
 end
 
