@@ -1,5 +1,8 @@
 %article.search
 
+  - unless @sheets.present?
+    %div.alert.alert-error= t('.search_request_failed')
+
   %section.filters.clearfix
     %dl.span2
       %dt= t('.filters.date.title')

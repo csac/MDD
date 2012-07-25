@@ -48,6 +48,7 @@ fr:
   # Search resource
   search:
     index:
+      search_request_failed: 'Requête invalide'
       title:
         zero: 'Aucun résultat pour "%{query}"'
         one: '1 résultat pour "%{query}"'
