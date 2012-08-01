@@ -44,7 +44,7 @@ namespace :db do
     desc 'default: do all populate tasks'
     task :default => [
       :users,
-      :sheet,
+      :sheets,
     ]
 
     desc "Create 10 users"
