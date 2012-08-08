@@ -15,6 +15,13 @@ class SheetsController < InheritedResources::Base
     end
   end
 
+  def show
+    @sheet = Sheet.find(params[:id])
+    if request.path != sheet_path(@sheet)
+      redirect_to @sheet, status: :moved_permanently
+    end  
+  end 
+
   def update
     update! do |success, error|
       success.any do
@@ -49,6 +56,8 @@ class SheetsController < InheritedResources::Base
   def collection
     @sheets ||= end_of_association_chain.page(params[:page])
   end
+
+
 
 end
 
