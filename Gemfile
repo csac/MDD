@@ -47,9 +47,9 @@ end
 
 group :test do
   gem 'simplecov'       , '~> 0.5.4', require: false
-  gem 'rspec-rails'     , '~> 2.8.1'
+  gem 'rspec-rails'     , '~> 2.11.0'
   gem 'turn', '~>0.9.2', require: false # Pretty printed test output
-  gem 'database_cleaner', '~>0.7.2'
+  gem 'database_cleaner', '~>0.8.0'
   gem 'fuubar', '~>1.0.0'
 end
 
