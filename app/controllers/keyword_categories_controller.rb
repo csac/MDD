@@ -9,8 +9,9 @@ class KeywordCategoriesController < InheritedResources::Base
   end
 
   def destroy
-    resource.destroy
-    redirect_to :back
+    destroy! do
+      redirect_to :back
+    end
   end
 
   protected
