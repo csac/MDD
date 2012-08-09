@@ -17,6 +17,7 @@
 /config/database.yml
 /config/gaston/tire.yml
 /public/assets
+/public/system
 /REVISION
 /.sass-cache
 /.rvmrc
