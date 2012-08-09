@@ -1,0 +1,40 @@
+<article class='keyword-category'>
+
+  <ul class='breadcrumb row'>
+    <li>
+      <%= link_to t('nav.keyword_categories.index'), keyword_categories_path %>
+      <span class='divider'>/</span>
+      <li class='active'>
+        <%= resource.name %>
+      </li>
+    </li>
+  </ul>
+
+  <header class='page-header row'>
+    <h1 class='pull-left'><%= resource.name %></h1>
+    <p class='pull-right'>
+      <%= link_to t('actions.keyword_categories.edit'), edit_keyword_category_path(resource), :class => 'btn' %>
+      <%= link_to t('actions.keywords.new'), new_keyword_path(keyword_category_id: resource.id), :class => 'btn btn-primary' %>
+    </p>
+  </header>
+
+  <section class='row'>
+    <table class='table table-bordered table-striped'>
+      <tr>
+        <th><%= t('.keyword') %></th>
+        <th><%= t('.actions') %></th>
+      </tr>
+      <% resource.keywords.each do |keyword| %>
+      <tr>
+        <td><%= link_to keyword.name, keyword_path(keyword) %></td>
+        <td>
+          <%= link_to t('actions.keywords.edit'), edit_keyword_path(keyword), :class => 'btn btn-small' %>
+          <%= link_to t('actions.keywords.delete'), keyword_path(keyword), method: :delete, confirm: t('actions.confirm_delete'), :class => 'btn btn-danger btn-small' %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+    <%= paginate collection %>
+  </section>
+
+</article>

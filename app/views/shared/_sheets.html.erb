@@ -1,0 +1,13 @@
+<% sheets.each do |sheet| %>
+  <tr>
+    <td class='meta'>
+      <% sheet.keywords.each do |keyword| %>
+        <span class='label label-info'><%= keyword.name %></span>
+      <% end %>
+    </td>
+    <td class='level'>
+      <div class='level<%= sheet.level %>'></div>
+    </td>
+    <td><%= link_to sheet.title, sheet_path(sheet) %></td>
+  </tr>
+<% end %>

@@ -1,0 +1,15 @@
+<article class='sheet new'>
+
+  <ul class='breadcrumb'>
+    <li>
+      <%= link_to t('nav.sheets.index'), search_index_path %>
+      <span class='divider'>/</span>
+      <li class='active'>
+        <%= t('nav.sheets.new') %>
+      </li>
+    </li>
+  </ul>
+
+  <%= render :partial => 'form' %>
+
+</article>

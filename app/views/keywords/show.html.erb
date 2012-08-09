@@ -1,0 +1,43 @@
+<article class='keyword'>
+
+  <ul class='breadcrumb row'>
+    <li>
+      <%= link_to t('nav.keywords.index'), keywords_path %>
+      <span class='divider'>/</span>
+      <li class='active'>
+        <%= resource.name %>
+      </li>
+    </li>
+  </ul>
+
+  <header class='page-header row'>
+    <h1 class='pull-left'><%= resource.name %></h1>
+    <p class='pull-right'>
+      <%= link_to t('actions.edit'), edit_keyword_path(resource), :class => 'btn' %>
+      <%= link_to t('actions.sheets.new'), new_sheet_path, :class => 'btn btn-primary' %>
+    </p>
+  </header>
+
+  <section class='row'>
+    <table class='table table-bordered table-striped'>
+      <tr>
+        <th><%= t('.sheet') %></th>
+        <th><%= t('.actions') %></th>
+      </th>
+    </tr>
+      <% resource.sheets.each do |sheet| %>
+      <tr>
+        <td><%= link_to sheet.title, sheet_path(sheet) %></td>
+        <td>
+          <%= link_to t('actions.sheets.edit'), edit_sheet_path(sheet), :class => 'btn btn-small' %>
+          <%= link_to t('actions.sheets.delete'), sheet_path(sheet), method: :delete, confirm: t('actions.confirm_delete'), :class => 'btn btn-danger btn-small' %>
+        </td>
+      </tr>
+      <% end %>
+
+    </table>
+  </section>
+
+  <%= paginate collection %>
+
+</article>

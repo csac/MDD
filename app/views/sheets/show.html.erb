@@ -1,0 +1,62 @@
+<header class='navbar-inner'>
+  <p class='pull-left'>
+    <%= link_to search_index_path, :class => 'btn', :title => 'Retour' do %>
+      <i class='icon-chevron-left'></i>
+    <% end %>
+  </p>
+  <h1 class='pull-left'><%= resource.title %></h1>
+  <div class='pull-right'>
+    <% if last_search? %>
+      <% if previous_result %>
+        <%= link_to sheet_path(previous_result), :class => 'btn' do %>
+          <i class='icon-arrow-left'></i>
+        <% end %>
+      <% else %>
+        <%= link_to '#', :class => 'btn disabled' do %>
+          <i class='icon-arrow-left'></i>
+        <% end %>
+      <% end %>
+      <% if next_result %>
+        <%= link_to sheet_path(next_result), :class => 'btn' do %>
+          <i class='icon-arrow-right'></i>
+        <% end %>
+      <% else %>
+        <%= link_to '#', :class => 'btn disabled' do %>
+          <i class='icon-arrow-right'></i>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <aside class='level_<%= resource.level %>'>
+    <p class='picture'><%= image_tag("no_picture.png") %></p>
+    <div class='metadata'>
+      <% resource.keywords.each do |keyword| %>
+        <span class='badge'><%= keyword.name %></span>
+      <% end %>
+    </div>
+    <div class='history'>
+      <ul class='unstyled'>
+      <% resource.histories.last(10).reverse.each do |history| %>
+        <li><%= t(".histories.#{history.action}", user: history.user.name, time: l(history.created_at, format: :short)) %></li>
+      <% end %>
+      </ul>
+    </div>
+  </aside>
+
+<article class='sheet'>
+  <article>
+    <section class='description'>
+      <%= raw(resource.description) %>
+    </section>
+    <div class='actions'>
+      <%= link_to edit_sheet_path(resource), :class => 'btn btn-mini btn-primary' do %>
+        <i class='icon-pencil icon-white'></i>
+      <% end %>
+      <%= link_to sheet_path(resource), method: :delete, confirm: t('actions.confirm_delete'), :class => 'btn btn-mini' do %>
+        <i class='icon-trash'></i>
+      <% end %>
+    </div>
+  </article>
+</article>
+

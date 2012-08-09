@@ -1,0 +1,31 @@
+<div class='adminConnexion'>
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <fieldset>
+      <header class='pastelBlock'>
+        <h2><%= t('devise.shared.sign_in') %></h2>
+        <div class='pastelBlock'>
+          <%= link_to "Cerbere CAS", "/users/auth/cas" %>
+        </div>
+        <div class='pastelBlock'>
+          <%= devise_error_messages! %>
+          <p>
+            <%= f.label :email, t('devise.shared.email') %>
+            <%= f.email_field :email %>
+          </p>
+          <p>
+            <%= f.label :password, t('devise.shared.password') %>
+            <%= f.password_field :password %>
+          </p>
+          <p>
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me, t('devise.shared.remember_me') %>
+          </p>
+          <p>
+            <%= f.submit t('devise.shared.sign_in') %>
+          </p>
+        </div>
+      </header>
+    </fieldset>
+  <% end %>
+</div>
+

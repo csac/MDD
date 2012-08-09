@@ -1,0 +1,72 @@
+<article class='search'>
+
+  <section class='filters clearfix'>
+    <dl class='span2'>
+      <dt><%= t('.filters.date.title') %></dt>
+      <dd><%= link_to t('.filters.date.all'), request.query_parameters.merge(updated: nil), :class => is_active?('updated', 'all') %></dd>
+      <dd><%= link_to t('.filters.date.today'), request.query_parameters.merge(updated: 'today'), :class => is_active?('updated', 'today') %></dd>
+      <dd><%= link_to t('.filters.date.yesterday'), request.query_parameters.merge(updated: 'yesterday'), :class => is_active?('updated', 'yesterday') %></dd>
+      <dd><%= link_to t('.filters.date.this_week'), request.query_parameters.merge(updated: 'this-week'), :class => is_active?('updated', 'this-week') %></dd>
+      <dd><%= link_to t('.filters.date.this_month'), request.query_parameters.merge(updated: 'this-month'), :class => is_active?('updated', 'this-month') %></dd>
+    </dl>
+
+    <dl class='span2'>
+      <dt><%= t('.filters.keywords.title') %></dt>
+      <dd><%= link_to t('.filters.keywords.all'), request.query_parameters.merge('tags' => nil), :class => is_active?('tags', 'all') %></dd>
+      <% skills_keywords_by_name.each do |keyword| %>
+        <% if is_active?('tags', keyword.name).present? %>
+          <dd><%= link_to keyword.name, request.query_parameters.merge('tags' => params[:tags] - [keyword.name]), :class => 'active' %></dd>
+        <% else %>
+          <dd><%= link_to keyword.name, request.query_parameters.merge('tags[]' => keyword.name) %></dd>
+        <% end %>
+      <% end %>
+    </dl>
+
+    <dl class='span2'>
+      <dt><%= t('.filters.most_used_keywords.title') %></dt>
+      <dd><%= link_to t('.filters.most_used_keywords.all'), request.query_parameters.merge('most-used-keywords' => nil), :class => is_active?('most-used-keywords', 'all') %></dd>
+      <% firsts(@sheets.facets['tags'], 10).each do |keyword| %>
+        <% if is_active?('most-used-keywords', keyword['term']).present? %>
+          <dd><%= link_to keyword['term'], request.query_parameters.merge('most-used-keywords' => params['most-used-keywords'] - [keyword['term']]), :class => 'active' %></dd>
+        <% else %>
+          <dd><%= link_to keyword['term'], request.query_parameters.merge('most-used-keywords[]' => keyword['term']) %></dd>
+        <% end %>
+      <% end %>
+    </dl>
+
+    <dl class='span2'>
+      <dt><%= t('.filters.level.title') %></dt>
+      <dd><%= link_to t('.filters.level.all'), request.query_parameters.merge(level: nil), :class => is_active?('level', 'all') %></dd>
+      <% (1..3).each do |level| %>
+        <dd><%= link_to t(".filters.level.#{level}"), request.query_parameters.merge(level: level), :class => is_active?('level', level.to_s) %></dd>
+      <% end %>
+    </dl>
+
+    <dl class='span2'>
+      <dt><%= t('.filters.up_to_date.title') %></dt>
+      <dd><%= link_to t('.filters.up_to_date.all'), request.query_parameters.merge(up_to_date: nil), :class => is_active?('up_to_date', 'all') %></dd>
+      <dd><%= link_to t('.filters.up_to_date.yes'), request.query_parameters.merge(up_to_date: true), :class => is_active?('up_to_date', 'true') %></dd>
+      <dd><%= link_to t('.filters.up_to_date.no'), request.query_parameters.merge(up_to_date: false), :class => is_active?('up_to_date', 'false') %></dd>
+    </dl>
+
+  </section>
+
+  <section>
+    <div class='results'>
+      <span class='nbr'><%= @sheets.length %></span>
+      <%= t('.sheet').pluralize(@sheets.length) %>
+    </div>
+    <table class='table'>
+      <colgroup>
+        <col width='25%'></col>
+        <col width='15px'></col>
+        <col></col>
+      </colgroup>
+      <tbody>
+        <%= render partial: "shared/sheets", locals: {sheets: @sheets.to_a} %>
+      </tbody>
+    </table>
+    <%= paginate @sheets %>
+  </section>
+
+</article>

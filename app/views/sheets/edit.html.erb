@@ -1,0 +1,19 @@
+<article class='sheet new'>
+
+  <ul class='breadcrumb'>
+    <li>
+      <%= link_to t('nav.sheets.index'), search_index_path %>
+      <span class='divider'>/</span>
+      <li>
+        <%= link_to resource.title, sheet_path(resource) %>
+      </li>
+      <li class='active'>
+        <span class='divider'>/</span>
+        <%= t('nav.sheets.edit') %>
+      </li>
+    </li>
+  </ul>
+
+  <%= render :partial => 'form' %>
+
+</article>

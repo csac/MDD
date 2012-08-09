@@ -1,0 +1,21 @@
+<article class='keyword-category'>
+
+  <ul class='breadcrumb row'>
+    <li>
+      <%= link_to t('nav.keyword_categories.index'), keywords_path %>
+      <span class='divider'>/</span>
+      <li class='active'>
+        <%= t('nav.keyword_categories.edit') %>
+      </li>
+    </li>
+  </ul>
+
+  <header class='page-header row'>
+    <h1 class='pull-left'>
+      <%= t('.title') %>
+    </h1>
+  </header>
+
+  <%= render :partial => 'form' %>
+
+</article>
