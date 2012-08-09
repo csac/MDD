@@ -55,6 +55,9 @@ fr:
       confirmed: 'Votre compte a été confirmé avec succès, vous êtes maintenant connectés'
     registrations:
       signed_up: 'Bienvenue, vous êtes connectés avec succès'
+      signed_up_but_unconfirmed: 'Un message contenant un lien de confirmation a été envoyé à votre adresse email. Cliquez sur ce lien pour activer votre compte.'
+      signed_up_but_inactive: 'Vous vous êtes bien connecté mais nous ne pouvons pas vous laisser entrer car votre compte n est pas encore activé.'
+      signed_up_but_locked: 'Vous vous êtes bien connecté mais nous ne pouvons pas vous laisser entre car votre compte est vérouillé.'
       edit: "Editer %{resourcename}"
       leave_blank: "laissez vide si vous ne désirez pas le changer"
       current_password_label: "Nous avons besoin de votre mot de passe actuel pour confirmer les changements"
