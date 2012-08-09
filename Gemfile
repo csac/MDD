@@ -40,7 +40,7 @@ group :assets do
   gem 'uglifier',     '>= 1.0.3'
   gem 'therubyracer', '~>0.9.10'  # Coffescript compilation
   gem 'bootstrap-sass', '~>2.0.2'
-  gem 'bootswatch-rails', '~>0.0.11', :git => "http://github.com/maxim/bootswatch-rails.git"
+  gem 'bootswatch-rails', '~>0.0.12'
   gem 'compass',        '=0.12.rc.1'
   gem 'compass-rails',  '=1.0.0.rc.3'
 end
@@ -56,7 +56,7 @@ end
 group :development do
   gem "capistrano-af83" , '~> 0.2.1'
   gem 'shout-bot', '=0.0.4'
-  gem "annotate", :git => "http://github.com/ctran/annotate_models.git"
+  gem "annotate", '~> 2.5.0'
   gem 'simplecov', '~>0.5.4', require: false # Code coverage
   gem 'letter_opener', '~>0.0.2'
   gem 'quiet_assets'
