@@ -28,8 +28,8 @@ gem "mini_magick"
 gem "omniauth"
 gem "omniauth-cas"
 
-gem 'mechanize'
 gem 'friendly_id'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
