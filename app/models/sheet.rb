@@ -95,7 +95,7 @@ class Sheet < ActiveRecord::Base
     end
 
     # Pagination
-    if params[:pagination] != false
+    if params[:pagination]
       page     = params[:page] ? (params[:page].to_i - 1) : 0
       per_page = params[:per_page] || Kaminari.config.default_per_page
 
