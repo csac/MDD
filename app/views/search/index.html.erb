@@ -1,5 +1,9 @@
 <article class='search'>
 
+  <% unless @sheets.present? %>
+    <div class="alert alert-error"><%= t('.search_request_failed') %></div>
+  <% end %>
+
   <section class='filters clearfix'>
     <dl class='span2'>
       <dt><%= t('.filters.date.title') %></dt>

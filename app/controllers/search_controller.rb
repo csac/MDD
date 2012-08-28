@@ -7,7 +7,11 @@ class SearchController < ApplicationController
 
   def index
     session[:last_search] = params
-    @sheets = Sheet.search(params).perform.results
+    begin
+      @sheets = Sheet.search(params).perform.results
+    rescue Tire::Search::SearchRequestFailed
+      @sheets = nil
+    end
   end
 
   def is_active?(filter, value)

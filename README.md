@@ -80,8 +80,17 @@ bundle exec rails c
 Run
 ---
 
+
+Rails:
+
 ```
 bundle exec rails s thin
+```
+
+ElasticSearch:
+
+```
+bundle exec rake es:start
 ```
 
 Tests
