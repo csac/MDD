@@ -16,6 +16,9 @@ class Sheet < ActiveRecord::Base
   include Tire::Model::Search
   include Tire::Model::Callbacks
 
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :history]
+
   LEVELS = [1, 2, 3]
 
   has_and_belongs_to_many :keywords

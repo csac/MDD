@@ -5,6 +5,14 @@ class SheetsController < InheritedResources::Base
   respond_to :html
 
   helper_method :search_results, :previous_result, :next_result
+  
+  def show
+    @sheet = Sheet.find(params[:id])
+    if request.path != sheet_path(@sheet) && Rails.env != "test"
+       redirect_to @sheet, status: :moved_permanently
+    end
+  end
+
 
   def create
     create! do |success, error|
@@ -49,6 +57,8 @@ class SheetsController < InheritedResources::Base
   def collection
     @sheets ||= end_of_association_chain.page(params[:page])
   end
+
+
 
 end
 
